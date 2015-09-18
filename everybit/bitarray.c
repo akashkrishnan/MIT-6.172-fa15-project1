@@ -158,7 +158,7 @@ void bitarray_set(bitarray_t *const bitarray,
   // with a byte that has either a 1 or a 0 in the correct place.
   bitarray->buf[bit_index / 8] =
       (bitarray->buf[bit_index / 8] & ~bitmask(bit_index)) |
-           (value ? bitmask(bit_index) : 0);
+      (value << (bit_index % 8));
 }
 
 void bitarray_rotate(bitarray_t *const bitarray,
@@ -193,6 +193,7 @@ static void bitarray_rotate_left(bitarray_t *const bitarray,
                                  const size_t bit_offset,
                                  const size_t bit_length,
                                  const size_t bit_left_amount) {
+  assert(bit_left_amount < bit_length);
   if(bit_left_amount == 0) return;
   bitarray_reverse(bitarray, bit_offset, bit_offset + bit_left_amount - 1);
   bitarray_reverse(bitarray, bit_offset + bit_left_amount, bit_offset + bit_length - 1);
