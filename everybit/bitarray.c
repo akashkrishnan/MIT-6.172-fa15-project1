@@ -153,8 +153,7 @@ bool bitarray_get(const bitarray_t *const bitarray, const size_t bit_index) {
   // get the byte; we then bitwise-and the byte with an appropriate mask
   // to produce either a zero byte (if the bit was 0) or a nonzero byte
   // (if it wasn't).  Finally, we convert that to a boolean.
-  return (bitarray->buf[bit_index / 8] & bitmask(bit_index)) ?
-             true : false;
+  return (bitarray->buf[bit_index / 8] & bitmask(bit_index));
 }
 
 void bitarray_set(bitarray_t *const bitarray,
@@ -204,12 +203,42 @@ static void bitarray_rotate_left_one(bitarray_t *const bitarray,
                                      const size_t bit_length) {
   // Grab the first bit in the range, shift everything left by one, and
   // then stick the first bit at the end.
+  const size_t n = bit_offset + bit_length - 1;
+  const size_t byte_start_idx = bit_offset / 8;
+  const size_t byte_stop_idx = n / 8;
+  const size_t bit_start_idx = bit_offset % 8;
+  const size_t bit_stop_idx = n % 8;
   const bool first_bit = bitarray_get(bitarray, bit_offset);
-  size_t i;
-  for (i = bit_offset; i + 1 < bit_offset + bit_length; i++) {
-    bitarray_set(bitarray, i, bitarray_get(bitarray, i + 1));
+  size_t i = byte_start_idx;
+  while(true) {
+    if(byte_start_idx == byte_stop_idx) {
+      // use bits bit_start_idx:bit_stop_idx
+      size_t mask = (0xFF << bit_start_idx) & (0xFF >> (7 - bit_stop_idx));
+      bitarray->buf[i] = (bitarray->buf[i] & ~mask) |
+                         (((bitarray->buf[i] & mask) >> 1) & mask) |
+                         (first_bit << bit_stop_idx);
+      break;
+    } else if(i == byte_start_idx) {
+      // use bits bit_start_idx:7
+      size_t mask = 0xFF << bit_start_idx;
+      bitarray->buf[i] = (bitarray->buf[i] & ~mask) |
+                         (((bitarray->buf[i] & mask) >> 1) & mask) |
+                         ((bitarray->buf[i + 1] & 1) << 7);
+      i++;
+    } else if(i < byte_stop_idx) {
+      // use bits curr_byte
+      bitarray->buf[i] = (bitarray->buf[i] >> 1) |
+                         ((bitarray->buf[i + 1] & 1) << 7);
+      i++;
+    } else {
+      // use bits 0:bit_stop_idx
+      size_t mask = 0xFF >> (7 - bit_stop_idx);
+      bitarray->buf[i] = (bitarray->buf[i] & ~mask) |
+                         (((bitarray->buf[i] & mask) >> 1) & mask) |
+                         (first_bit << bit_stop_idx);
+      break;
+    }
   }
-  bitarray_set(bitarray, i, first_bit);
 }
 
 static size_t modulo(const ssize_t n, const size_t m) {
