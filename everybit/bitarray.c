@@ -65,18 +65,6 @@ static void bitarray_rotate_left(bitarray_t *const bitarray,
                                  const size_t bit_length,
                                  const size_t bit_left_amount);
 
-// Rotates a subarray left by one bit.
-//
-// bit_offset is the index of the start of the subarray
-// bit_length is the length of the subarray, in bits
-//
-// The subarray spans the half-open interval
-// [bit_offset, bit_offset + bit_length)
-// That is, the start is inclusive, but the end is exclusive.
-static void bitarray_rotate_left_one(bitarray_t *const bitarray,
-                                     const size_t bit_offset,
-                                     const size_t bit_length);
-
 // Portable modulo operation that supports negative dividends.
 //
 // Many programming languages define modulo in a manner incompatible with its
@@ -105,7 +93,7 @@ static size_t modulo(const ssize_t n, const size_t m);
 // however, so as long as you always use bitarray_get and bitarray_set
 // to access bits in your bitarray, this reverse representation should
 // not matter.
-static char bitmask(const size_t bit_index);
+static inline char bitmask(const size_t bit_index);
 
 
 // ******************************* Functions ********************************
@@ -189,59 +177,26 @@ void bitarray_rotate(bitarray_t *const bitarray,
            modulo(-bit_right_amount, bit_length));
 }
 
+static void bitarray_reverse(bitarray_t *const bitarray,
+                             size_t start,
+                             size_t stop) {
+  while(start < stop) {
+    bitarray_set(bitarray, start, bitarray_get(bitarray, start) ^ bitarray_get(bitarray, stop));
+    bitarray_set(bitarray, stop,  bitarray_get(bitarray, start) ^ bitarray_get(bitarray, stop));
+    bitarray_set(bitarray, start, bitarray_get(bitarray, start) ^ bitarray_get(bitarray, stop));
+    start++;
+    stop--;
+  }
+}
+
 static void bitarray_rotate_left(bitarray_t *const bitarray,
                                  const size_t bit_offset,
                                  const size_t bit_length,
                                  const size_t bit_left_amount) {
-  for (size_t i = 0; i < bit_left_amount; i++) {
-    bitarray_rotate_left_one(bitarray, bit_offset, bit_length);
-  }
-}
-
-static void bitarray_rotate_left_one(bitarray_t *const bitarray,
-                                     const size_t bit_offset,
-                                     const size_t bit_length) {
-  // Stored the first bit, and rotate the bits at the byte level
-  const size_t n = bit_offset + bit_length - 1;
-  const size_t byte_start_idx = bit_offset / 8;
-  const size_t byte_stop_idx = n / 8;
-  const size_t bit_start_idx = bit_offset % 8;
-  const size_t bit_stop_idx = n % 8;
-  size_t i = byte_start_idx;
-  const bool first_bit = bitarray->buf[i] & (1 << bit_start_idx);
-  
-  if(byte_start_idx == byte_stop_idx) {
-    // use bits bit_start_idx:bit_stop_idx because this is the only byte
-    size_t mask = (0xFF << bit_start_idx) & (0xFF >> (7 - bit_stop_idx));
-    bitarray->buf[i] = (bitarray->buf[i] & ~mask) |                // zero-out bits to be shifted
-                       (((bitarray->buf[i] & mask) >> 1) & mask) | // shift bits in question
-                       (first_bit << bit_stop_idx);                // add the first bit
-  } else {
-    // use bits bit_start_idx:7 because there is a next byte_idx
-    size_t mask = 0xFF << bit_start_idx;
-    bitarray->buf[i] = (bitarray->buf[i] & ~mask) |                // zero-out bits to be shifted
-                       (((bitarray->buf[i] & mask) >> 1) & mask) | // shift bits in question
-                       ((bitarray->buf[i + 1] & 1) << 7);          // get bit from next byte
-    i++;
-
-    // loop through next bytes
-    while(true) {
-      if(i < byte_stop_idx) {
-        // use all bits curr_byte because we've processed a previous byte and there is a next byte
-        bitarray->buf[i] = (bitarray->buf[i] >> 1) |          // shift bits in question
-                           ((bitarray->buf[i + 1] & 1) << 7); // get bit from next byte
-        i++;
-      } else {
-        // use bits 0:bit_stop_idx because this is the last byte
-        size_t mask = 0xFF >> (7 - bit_stop_idx);
-        bitarray->buf[i] = (bitarray->buf[i] & ~mask) |                // zero-out bits to be shifted
-                           (((bitarray->buf[i] & mask) >> 1) & mask) | // shift bits in question
-                           (first_bit << bit_stop_idx);                // add the first bit
-        break;
-      }
-    }
-  }
-  
+  if(bit_left_amount == 0) return;
+  bitarray_reverse(bitarray, bit_offset, bit_offset + bit_left_amount - 1);
+  bitarray_reverse(bitarray, bit_offset + bit_left_amount, bit_offset + bit_length - 1);
+  bitarray_reverse(bitarray, bit_offset, bit_offset + bit_length - 1);
 }
 
 static size_t modulo(const ssize_t n, const size_t m) {
@@ -252,7 +207,7 @@ static size_t modulo(const ssize_t n, const size_t m) {
   return (size_t)result;
 }
 
-static char bitmask(const size_t bit_index) {
+static inline char bitmask(const size_t bit_index) {
   return 1 << (bit_index % 8);
 }
 
