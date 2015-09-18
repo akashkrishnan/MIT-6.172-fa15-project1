@@ -181,13 +181,10 @@ static void bitarray_reverse(bitarray_t *const bitarray,
                              size_t start,
                              size_t stop) {
   size_t a;
-  size_t b;
   while(start < stop) {
-    b = bitarray_get(bitarray, stop);
-    a = bitarray_get(bitarray, start) ^ b;
-    b = a ^ b;
-    bitarray_set(bitarray, stop,  b);
-    bitarray_set(bitarray, start, a ^ b);
+    a = bitarray_get(bitarray, start);
+    bitarray_set(bitarray, start, bitarray_get(bitarray, stop));
+    bitarray_set(bitarray, stop, a);
     start++;
     stop--;
   }
