@@ -141,7 +141,7 @@ static inline void bitarray_set_byterange(bitarray_t *const ba,
   // TODO: possibly increase performance by setting two partial bytes?
   unsigned char mask = 1 << (bit_len - 1);
   for(size_t i = 0; i < bit_len; i++, bit_off++, mask >>= 1) {
-     bitarray_set(ba, bit_off, val & mask);
+    bitarray_set(ba, bit_off, val & mask);
   }
 }
 
@@ -169,7 +169,7 @@ static inline void bitarray_reverse_byte(bitarray_t *const ba,
 static inline void bitarray_reverse_bytes(bitarray_t *const ba,
                                           unsigned char *left,
                                           unsigned char *right) {
-  //TODO: possibly reverse all bits first, then swap bytes?
+  //TODO: possibly reverse all bits first, then swap bytes? [REDUCES PERFORMANCE]
   while(left < right) {
     byte_reverse(left);
     byte_reverse(right);
@@ -239,15 +239,14 @@ static inline void bitarray_reverse(bitarray_t *const ba,
   assert(ba);
   assert(bit_off + bit_len <= ba->bit_sz);  // ensure valid substring
 
+  PRINT(bit_off)
+  PRINT(bit_len)
+
   // Shortcut for single-byte range
   if(bit_off % 8 + bit_len <= 8) {
     // TODO: shortcut for complete byte using byte_reverse()?
     return bitarray_reverse_byte(ba, bit_off, bit_len);
   }
-
-  printf("\n");
-  PRINT(bit_off)
-  PRINT(bit_len)
 
   // Determine length of left and right edge bits
   size_t left_edge_len  = 8 - (bit_off % 8);
@@ -304,6 +303,8 @@ void bitarray_rotate(bitarray_t *const bitarray,
   // No rotation?
   if(n == 0) return;
   
+  // TODO: add shortcuts for basic cases before doing the reverses?
+
   // Do the rotation
   bitarray_reverse(bitarray, bit_offset, n);
   bitarray_reverse(bitarray, bit_offset + n, bit_length - n);
