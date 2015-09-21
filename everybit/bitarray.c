@@ -32,6 +32,7 @@
 #include <sys/types.h>
 
 #include "./bitarray.h"
+#include "./byte_reverse.h"
 
 
 // ********************************* Types **********************************
@@ -44,26 +45,8 @@ struct bitarray {
 
   // The underlying memory buffer that stores the bits in
   // packed form (8 per byte).
-  char *buf;
+  unsigned char *buf;
 };
-
-
-// ******************** Prototypes for static functions *********************
-
-// Rotates a subarray left by an arbitrary number of bits.
-//
-// bit_offset is the index of the start of the subarray
-// bit_length is the length of the subarray, in bits
-// bit_left_amount is the number of places to rotate the
-//                    subarray left
-//
-// The subarray spans the half-open interval
-// [bit_offset, bit_offset + bit_length)
-// That is, the start is inclusive, but the end is exclusive.
-static void bitarray_rotate_left(bitarray_t *const bitarray,
-                                 const size_t bit_offset,
-                                 const size_t bit_length,
-                                 const size_t bit_left_amount);
 
 // Portable modulo operation that supports negative dividends.
 //
@@ -82,25 +65,12 @@ static void bitarray_rotate_left(bitarray_t *const bitarray,
 // 0 <= r < m.
 static size_t modulo(const ssize_t n, const size_t m);
 
-// Produces a mask which, when ANDed with a byte, retains only the
-// bit_index th byte.
-//
-// Example: bitmask(5) produces the byte 0b00100000.
-//
-// (Note that here the index is counted from right
-// to left, which is different from how we represent bitarrays in the
-// tests.  This function is only used by bitarray_get and bitarray_set,
-// however, so as long as you always use bitarray_get and bitarray_set
-// to access bits in your bitarray, this reverse representation should
-// not matter.
-static inline char bitmask(const size_t bit_index);
-
 
 // ******************************* Functions ********************************
 
 bitarray_t *bitarray_new(const size_t bit_sz) {
   // Allocate an underlying buffer of ceil(bit_sz/8) bytes.
-  char *const buf = calloc(1, bit_sz / 8 + ((bit_sz % 8 == 0) ? 0 : 1));
+  unsigned char *const buf = calloc(1, bit_sz / 8 + ((bit_sz % 8 == 0) ? 0 : 1));
   if (buf == NULL) {
     return NULL;
   }
@@ -130,18 +100,13 @@ size_t bitarray_get_bit_sz(const bitarray_t *const bitarray) {
   return bitarray->bit_sz;
 }
 
-bool bitarray_get(const bitarray_t *const bitarray, const size_t bit_index) {
+bool bitarray_get(const bitarray_t *const bitarray,
+                  const size_t bit_index) {
   assert(bit_index < bitarray->bit_sz);
 
-  // We're storing bits in packed form, 8 per byte.  So to get the nth
-  // bit, we want to look at the (n mod 8)th bit of the (floor(n/8)th)
-  // byte.
-  //
-  // In C, integer division is floored explicitly, so we can just do it to
-  // get the byte; we then bitwise-and the byte with an appropriate mask
-  // to produce either a zero byte (if the bit was 0) or a nonzero byte
-  // (if it wasn't).  Finally, we convert that to a boolean.
-  return (bitarray->buf[bit_index / 8] & bitmask(bit_index));
+  unsigned char pos  = 7 - bit_index % 8;
+  unsigned char mask = 1 << pos;
+  return bitarray->buf[bit_index / 8] & mask;
 }
 
 void bitarray_set(bitarray_t *const bitarray,
@@ -149,16 +114,156 @@ void bitarray_set(bitarray_t *const bitarray,
                   const bool value) {
   assert(bit_index < bitarray->bit_sz);
 
-  // We're storing bits in packed form, 8 per byte.  So to set the nth
-  // bit, we want to set the (n mod 8)th bit of the (floor(n/8)th) byte.
-  //
-  // In C, integer division is floored explicitly, so we can just do it to
-  // get the byte; we then bitwise-and the byte with an appropriate mask
-  // to clear out the bit we're about to set.  We bitwise-or the result
-  // with a byte that has either a 1 or a 0 in the correct place.
+  unsigned char pos  = 7 - bit_index % 8;
+  unsigned char mask = ~(1 << pos);
   bitarray->buf[bit_index / 8] =
-      (bitarray->buf[bit_index / 8] & ~bitmask(bit_index)) |
-      (value << (bit_index % 8));
+    (bitarray->buf[bit_index / 8] & mask) | (value << pos);
+}
+
+static inline void bitarray_set_byterange(bitarray_t *const ba,
+                                          size_t bit_off,
+                                          const size_t bit_len,
+                                          const unsigned char val) {
+  assert(ba);
+  assert(bit_len <= 8);
+  assert(bit_off + bit_len < ba->bit_sz);
+
+  // TODO: possibly increase performance by setting two partial bytes?
+  unsigned char mask = 1 << (bit_len - 1);
+  for(size_t i = 0; i < bit_len; i++, bit_off++, mask >>= 1) {
+     bitarray_set(ba, bit_off, val & mask);
+  }
+}
+
+static inline void bitarray_reverse_byte(bitarray_t *const ba,
+                                         size_t bit_off,
+                                         size_t bit_len) {
+  assert(ba);
+  assert(bit_off + bit_len <= ba->bit_sz);  // ensure valid substring
+  assert(bit_off % 8 + bit_len <= 8);       // ensure single byte
+
+  size_t l = bit_off;
+  size_t r = bit_off + bit_len - 1;
+  bool tmp;
+  
+  // TODO: possibly pass in byte pointer, since it doesn't change?
+  while(l < r) {
+    tmp = bitarray_get(ba, l);
+    bitarray_set(ba, l, bitarray_get(ba, r));
+    bitarray_set(ba, r, tmp);
+    l++;
+    r--;
+  }
+}
+
+static inline void byte_swap(unsigned char *a,
+                             unsigned char *b) {
+  unsigned char tmp = *a;
+  *a = *b;
+  *b = tmp;
+}
+
+static inline void bitarray_reverse_bytes(bitarray_t *const ba,
+                                          unsigned char *left,
+                                          unsigned char *right) {
+  //TODO: possibly reverse all bits first, then swap bytes?
+  while(left < right) {
+    byte_reverse(left);
+    byte_reverse(right);
+    byte_swap(left, right);
+    left++;
+    right--;
+  }
+
+  // Reverse middle byte if odd number of bytes
+  if(left == right) byte_reverse(left);
+}
+
+static inline void bitarray_shift_bytes(bitarray_t *const ba,
+                                        unsigned char *left,
+                                        unsigned char *right,
+                                        size_t shift) {
+  assert(ba);
+  assert(left > ba);
+  assert(left < right);
+  assert(right < ba + ba->bit_sz / 8);
+
+  unsigned char carry_mask;
+  unsigned char carry_shift;
+  unsigned char carry = 0;
+  unsigned char tmp;
+
+  if(shift > 0) {
+    carry_shift = 8 - shift;
+    carry_mask = (1 << shift) - 1;
+
+    // Loop from left to right, shifting bits right in each byte
+    for(; left <= right; left++) {
+      tmp = (*left & carry_mask) << carry_shift;
+      *left = carry | (*left >> shift);
+      carry = tmp;
+    }
+
+    // Push carry bits into right edge byte
+    *left = carry | (*left & (255 >> shift));
+  } else if(shift < 0) {
+    shift = -shift;
+    carry_shift = 8 - shift;
+    carry_mask = 255 << carry_shift;
+
+    // Loop from right to left, shifting bits left in each byte
+    for(; left <= right; right--) {
+      tmp = (*right & carry_mask) >> carry_shift;
+      *right = (*right << shift) | carry;
+      carry = tmp;
+    }
+
+    // Push carry bits int left edge byte
+    *right = (*right & (255 << shift)) | carry;
+  }
+}
+
+static inline void bitarray_reverse(bitarray_t *const ba,
+                                    size_t bit_off,
+                                    size_t bit_len) {
+  assert(ba);
+  assert(bit_off + bit_len <= ba->bit_sz);  // ensure valid substring
+
+  // Shortcut for single-byte range
+  if(bit_off % 8 + bit_len <= 8) {
+    // TODO: shortcut for complete byte using byte_reverse()?
+    return bitarray_reverse_byte(ba, bit_off, bit_len);
+  }
+
+  // Determine length of left and right edge bits
+  size_t left_edge_len  = 8 - (bit_off % 8);
+  size_t right_edge_len = (bit_off + bit_len) % 8;
+
+  // Get first and last bytes
+  unsigned char *first_byte = ba->buf + bit_off / 8;
+  unsigned char *last_byte  = ba->buf + (bit_off + bit_len - 1) / 8;
+
+  // Reverse bytes and bits in each byte
+  bitarray_reverse_bytes(ba, first_byte + 1, last_byte - 1);
+
+  // Retrieve edge bytes
+  unsigned char left_edge = *first_byte & ~(255 << left_edge_len);
+  unsigned char right_edge = *last_byte & ~(255 >> right_edge_len);
+
+  // Reverse edge bytes
+  byte_reverse(&left_edge);
+  byte_reverse(&right_edge);
+
+  // Calculate number of bits to shift in each byte
+  signed char shift = right_edge_len - left_edge_len;
+
+  // Shift bits in inner bytes
+  bitarray_shift_bytes(ba, first_byte + 1, last_byte - 1, shift);
+
+  // Swap edge bits
+  left_edge  = left_edge >> (8 - left_edge_len);
+  bitarray_set_byterange(ba, bit_off, right_edge_len, right_edge);
+  bitarray_set_byterange(ba, bit_off + bit_len - left_edge_len, left_edge_len, left_edge);
 }
 
 void bitarray_rotate(bitarray_t *const bitarray,
@@ -167,38 +272,19 @@ void bitarray_rotate(bitarray_t *const bitarray,
                      const ssize_t bit_right_amount) {
   assert(bit_offset + bit_length <= bitarray->bit_sz);
 
-  if (bit_length == 0) {
-    return;
-  }
+  // Nothing to rotate?
+  if (bit_length == 0) return;
 
-  // Convert a rotate left or right to a left rotate only, and eliminate
-  // multiple full rotations.
-  bitarray_rotate_left(bitarray, bit_offset, bit_length,
-           modulo(-bit_right_amount, bit_length));
-}
+  // Get left rotation amount
+  size_t n = modulo(-bit_right_amount, bit_length);
 
-static void bitarray_reverse(bitarray_t *const bitarray,
-                             size_t start,
-                             size_t stop) {
-  size_t a;
-  while(start < stop) {
-    a = bitarray_get(bitarray, start);
-    bitarray_set(bitarray, start, bitarray_get(bitarray, stop));
-    bitarray_set(bitarray, stop, a);
-    start++;
-    stop--;
-  }
-}
-
-static void bitarray_rotate_left(bitarray_t *const bitarray,
-                                 const size_t bit_offset,
-                                 const size_t bit_length,
-                                 const size_t bit_left_amount) {
-  assert(bit_left_amount < bit_length);
-  if(bit_left_amount == 0) return;
-  bitarray_reverse(bitarray, bit_offset, bit_offset + bit_left_amount - 1);
-  bitarray_reverse(bitarray, bit_offset + bit_left_amount, bit_offset + bit_length - 1);
-  bitarray_reverse(bitarray, bit_offset, bit_offset + bit_length - 1);
+  // No rotation?
+  if(n == 0) return;
+  
+  // Do the rotation
+  bitarray_reverse(bitarray, bit_offset, n);
+  bitarray_reverse(bitarray, bit_offset + n, bit_length - n);
+  bitarray_reverse(bitarray, bit_offset, bit_length);
 }
 
 static size_t modulo(const ssize_t n, const size_t m) {
@@ -207,9 +293,5 @@ static size_t modulo(const ssize_t n, const size_t m) {
   const ssize_t result = ((n % signed_m) + signed_m) % signed_m;
   assert(result >= 0);
   return (size_t)result;
-}
-
-static inline char bitmask(const size_t bit_index) {
-  return 1 << (bit_index % 8);
 }
 
