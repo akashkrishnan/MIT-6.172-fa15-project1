@@ -36,7 +36,7 @@
 #include "./byte_reverse.h"
 
 
-//#define DEBUG
+// #define DEBUG
 
 #ifdef DEBUG
   #define PRINT(VAR) printf("    "#VAR": %d\n", (int)(VAR));
@@ -138,9 +138,9 @@ static inline void bitarray_set_byterange(bitarray_t *const ba,
   assert(bit_len <= 8);
   assert(bit_off + bit_len < ba->bit_sz);
 
-  // TODO: possibly increase performance by setting two partial bytes?
+  // TODO(akashk16): possibly increase performance by setting two partial bytes?
   unsigned char mask = 1 << (bit_len - 1);
-  for(size_t i = 0; i < bit_len; i++, bit_off++, mask >>= 1) {
+  for (size_t i = 0; i < bit_len; i++, bit_off++, mask >>= 1) {
     bitarray_set(ba, bit_off, val & mask);
   }
 }
@@ -155,9 +155,9 @@ static inline void bitarray_reverse_byte(bitarray_t *const ba,
   size_t l = bit_off;
   size_t r = bit_off + bit_len - 1;
   bool tmp;
-  
-  // TODO: possibly pass in byte pointer, since it doesn't change?
-  while(l < r) {
+
+  // TODO(akashk16): possibly pass in byte pointer, since it doesn't change?
+  while (l < r) {
     tmp = bitarray_get(ba, l);
     bitarray_set(ba, l, bitarray_get(ba, r));
     bitarray_set(ba, r, tmp);
@@ -166,11 +166,12 @@ static inline void bitarray_reverse_byte(bitarray_t *const ba,
   }
 }
 
+// TODO(akashk16): possibly reverse more than one byte at a time? 4 bytes? 8 bytes?
 static inline void bitarray_reverse_bytes(bitarray_t *const ba,
                                           unsigned char *left,
                                           unsigned char *right) {
-  //TODO: possibly reverse all bits first, then swap bytes? [REDUCES PERFORMANCE]
-  while(left < right) {
+  // TODO(akashk16): possibly reverse all bits first, then swap bytes? [REDUCES PERFORMANCE]
+  while (left < right) {
     byte_reverse(left);
     byte_reverse(right);
     byte_swap(left, right);
@@ -179,13 +180,14 @@ static inline void bitarray_reverse_bytes(bitarray_t *const ba,
   }
 
   // Reverse middle byte if odd number of bytes
-  if(left == right) {
+  if (left == right) {
     PRINT(*left)
     byte_reverse(left);
     PRINT(*left)
   }
 }
 
+// TODO(akashk16): instead of shifting by char, shift by 64 bits, then char
 static inline void bitarray_shift_bytes(bitarray_t *const ba,
                                         unsigned char *left,
                                         unsigned char *right,
@@ -198,20 +200,22 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
   unsigned char carry = 0;
   unsigned char tmp;
 
-  if(shift > 0) {
+  if (shift > 0) {
     carry_shift = 8 - shift;
     carry_mask = (1 << shift) - 1;
 
     // Loop from left to right, shifting bits right in each byte
-    for(; left <= right; left++) {
+    for (; left <= right; left++) {
       tmp = (*left & carry_mask) << carry_shift;
       *left = carry | (*left >> shift);
       carry = tmp;
+      PRINT(*left)
+      PRINT(*carry)
     }
 
     // Push carry bits into right edge byte
     *left = carry | (*left & (255 >> shift));
-  } else if(shift < 0) {
+  } else if (shift < 0) {
     shift = -shift;
     carry_shift = 8 - shift;
     carry_mask = 255 << carry_shift;
@@ -220,7 +224,7 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
     PRINT(carry_mask)
 
     // Loop from right to left, shifting bits left in each byte
-    for(; left <= right; right--) {
+    for (; left <= right; right--) {
       tmp = (*right & carry_mask) >> carry_shift;
       *right = (*right << shift) | carry;
       carry = tmp;
@@ -243,8 +247,8 @@ static inline void bitarray_reverse(bitarray_t *const ba,
   PRINT(bit_len)
 
   // Shortcut for single-byte range
-  if(bit_off % 8 + bit_len <= 8) {
-    // TODO: shortcut for complete byte using byte_reverse()?
+  if (bit_off % 8 + bit_len <= 8) {
+    // TODO(akashk16): shortcut for complete byte using byte_reverse()?
     return bitarray_reverse_byte(ba, bit_off, bit_len);
   }
 
@@ -301,9 +305,9 @@ void bitarray_rotate(bitarray_t *const bitarray,
   size_t n = modulo(-bit_right_amount, bit_length);
 
   // No rotation?
-  if(n == 0) return;
-  
-  // TODO: add shortcuts for basic cases before doing the reverses?
+  if (n == 0) return;
+
+  // TODO(akashk16): add shortcuts for basic cases before doing the reverses?
 
   // Do the rotation
   bitarray_reverse(bitarray, bit_offset, n);
