@@ -26,6 +26,7 @@
 
 
 #include <assert.h>
+#include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
@@ -33,6 +34,15 @@
 
 #include "./bitarray.h"
 #include "./byte_reverse.h"
+
+
+//#define DEBUG
+
+#ifdef DEBUG
+  #define PRINT(VAR) printf("    "#VAR": %d\n", (int)(VAR));
+#else
+  #define PRINT(VAR)
+#endif
 
 
 // ********************************* Types **********************************
@@ -156,13 +166,6 @@ static inline void bitarray_reverse_byte(bitarray_t *const ba,
   }
 }
 
-static inline void byte_swap(unsigned char *a,
-                             unsigned char *b) {
-  unsigned char tmp = *a;
-  *a = *b;
-  *b = tmp;
-}
-
 static inline void bitarray_reverse_bytes(bitarray_t *const ba,
                                           unsigned char *left,
                                           unsigned char *right) {
@@ -176,17 +179,19 @@ static inline void bitarray_reverse_bytes(bitarray_t *const ba,
   }
 
   // Reverse middle byte if odd number of bytes
-  if(left == right) byte_reverse(left);
+  if(left == right) {
+    PRINT(*left)
+    byte_reverse(left);
+    PRINT(*left)
+  }
 }
 
 static inline void bitarray_shift_bytes(bitarray_t *const ba,
                                         unsigned char *left,
                                         unsigned char *right,
-                                        size_t shift) {
+                                        signed char shift) {
   assert(ba);
-  assert(left > ba);
   assert(left < right);
-  assert(right < ba + ba->bit_sz / 8);
 
   unsigned char carry_mask;
   unsigned char carry_shift;
@@ -210,12 +215,17 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
     shift = -shift;
     carry_shift = 8 - shift;
     carry_mask = 255 << carry_shift;
+    PRINT(shift)
+    PRINT(carry_shift)
+    PRINT(carry_mask)
 
     // Loop from right to left, shifting bits left in each byte
     for(; left <= right; right--) {
       tmp = (*right & carry_mask) >> carry_shift;
       *right = (*right << shift) | carry;
       carry = tmp;
+      PRINT(*right)
+      PRINT(carry)
     }
 
     // Push carry bits int left edge byte
@@ -235,13 +245,21 @@ static inline void bitarray_reverse(bitarray_t *const ba,
     return bitarray_reverse_byte(ba, bit_off, bit_len);
   }
 
+  printf("\n");
+  PRINT(bit_off)
+  PRINT(bit_len)
+
   // Determine length of left and right edge bits
   size_t left_edge_len  = 8 - (bit_off % 8);
-  size_t right_edge_len = (bit_off + bit_len) % 8;
+  size_t right_edge_len = (bit_off + bit_len - 1) % 8 + 1;
+  PRINT(left_edge_len)
+  PRINT(right_edge_len)
 
   // Get first and last bytes
   unsigned char *first_byte = ba->buf + bit_off / 8;
   unsigned char *last_byte  = ba->buf + (bit_off + bit_len - 1) / 8;
+  PRINT(*first_byte)
+  PRINT(*last_byte)
 
   // Reverse bytes and bits in each byte
   bitarray_reverse_bytes(ba, first_byte + 1, last_byte - 1);
@@ -249,13 +267,18 @@ static inline void bitarray_reverse(bitarray_t *const ba,
   // Retrieve edge bytes
   unsigned char left_edge = *first_byte & ~(255 << left_edge_len);
   unsigned char right_edge = *last_byte & ~(255 >> right_edge_len);
+  PRINT(left_edge)
+  PRINT(right_edge)
 
   // Reverse edge bytes
   byte_reverse(&left_edge);
   byte_reverse(&right_edge);
+  PRINT(left_edge)
+  PRINT(right_edge)
 
   // Calculate number of bits to shift in each byte
   signed char shift = right_edge_len - left_edge_len;
+  PRINT(shift)
 
   // Shift bits in inner bytes
   bitarray_shift_bytes(ba, first_byte + 1, last_byte - 1, shift);
