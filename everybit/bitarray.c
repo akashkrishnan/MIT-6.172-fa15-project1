@@ -139,7 +139,7 @@ static inline void bitarray_set_byterange(bitarray_t *const ba,
                                           const unsigned char val) {
   assert(ba);
   assert(bit_len <= 8);
-  assert(bit_off + bit_len < ba->bit_sz);
+  assert(bit_off + bit_len <= ba->bit_sz);
 
   // TODO(akashk16): possibly increase performance by setting two partial bytes?
   unsigned char mask = 1 << (bit_len - 1);
@@ -196,7 +196,6 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
                                         unsigned char *right,
                                         signed char shift) {
   assert(ba);
-  assert(left < right);
 
   unsigned char carry_mask;
   unsigned char carry_shift;
