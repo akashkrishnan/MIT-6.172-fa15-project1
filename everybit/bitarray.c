@@ -29,6 +29,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <inttypes.h>
 
 #include <sys/types.h>
 
@@ -39,7 +40,7 @@
 // #define DEBUG
 
 #ifdef DEBUG
-  #define PRINT(VAR) printf("    "#VAR": %d\n", (int)(VAR));
+  #define PRINT(VAR) printf("    "#VAR": %d (%0x)\n", (int)(VAR), (unsigned int)(VAR));
 #else
   #define PRINT(VAR)
 #endif
@@ -110,6 +111,7 @@ size_t bitarray_get_bit_sz(const bitarray_t *const bitarray) {
   return bitarray->bit_sz;
 }
 
+// TODO(akashk16): GO BACK TO LITTLE ENDIAN REP
 bool bitarray_get(const bitarray_t *const bitarray,
                   const size_t bit_index) {
   assert(bit_index < bitarray->bit_sz);
@@ -119,6 +121,7 @@ bool bitarray_get(const bitarray_t *const bitarray,
   return bitarray->buf[bit_index / 8] & mask;
 }
 
+// TODO(akashk16): GO BACK TO LITTLE ENDIAN REP
 void bitarray_set(bitarray_t *const bitarray,
                   const size_t bit_index,
                   const bool value) {
@@ -210,7 +213,7 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
       *left = carry | (*left >> shift);
       carry = tmp;
       PRINT(*left)
-      PRINT(*carry)
+      PRINT(carry)
     }
 
     // Push carry bits into right edge byte
