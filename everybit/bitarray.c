@@ -111,23 +111,21 @@ size_t bitarray_get_bit_sz(const bitarray_t *const bitarray) {
   return bitarray->bit_sz;
 }
 
-// TODO(akashk16): GO BACK TO LITTLE ENDIAN REP
 bool bitarray_get(const bitarray_t *const bitarray,
                   const size_t bit_index) {
   assert(bit_index < bitarray->bit_sz);
 
-  unsigned char pos  = 7 - bit_index % 8;
+  unsigned char pos  = bit_index % 8;
   unsigned char mask = 1 << pos;
   return bitarray->buf[bit_index / 8] & mask;
 }
 
-// TODO(akashk16): GO BACK TO LITTLE ENDIAN REP
 void bitarray_set(bitarray_t *const bitarray,
                   const size_t bit_index,
                   const bool value) {
   assert(bit_index < bitarray->bit_sz);
 
-  unsigned char pos  = 7 - bit_index % 8;
+  unsigned char pos  = bit_index % 8;
   unsigned char mask = ~(1 << pos);
   bitarray->buf[bit_index / 8] =
     (bitarray->buf[bit_index / 8] & mask) | (value << pos);
@@ -142,9 +140,8 @@ static inline void bitarray_set_byterange(bitarray_t *const ba,
   assert(bit_off + bit_len <= ba->bit_sz);
 
   // TODO(akashk16): possibly increase performance by setting two partial bytes?
-  unsigned char mask = 1 << (bit_len - 1);
-  for (size_t i = 0; i < bit_len; i++, bit_off++, mask >>= 1) {
-    bitarray_set(ba, bit_off, val & mask);
+  for (size_t i = 0; i < bit_len; i++, bit_off++) {
+    bitarray_set(ba, bit_off, val & (1 << i));
   }
 }
 
@@ -160,6 +157,7 @@ static inline void bitarray_reverse_byte(bitarray_t *const ba,
   bool tmp;
 
   // TODO(akashk16): possibly pass in byte pointer, since it doesn't change?
+  // TODO(akashk16): we could use byte_reverse and masks to get the reversed bits
   while (l < r) {
     tmp = bitarray_get(ba, l);
     bitarray_set(ba, l, bitarray_get(ba, r));
@@ -190,7 +188,7 @@ static inline void bitarray_reverse_bytes(bitarray_t *const ba,
   }
 }
 
-// TODO(akashk16): instead of shifting by char, shift by 64 bits, then char
+// TODO(akashk16): instead of shifting by char, shift by 64 bits
 static inline void bitarray_shift_bytes(bitarray_t *const ba,
                                         unsigned char *left,
                                         unsigned char *right,
@@ -204,38 +202,41 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
 
   if (shift > 0) {
     carry_shift = 8 - shift;
-    carry_mask = (1 << shift) - 1;
+    carry_mask = 0xFF << carry_shift;
+    PRINT(shift)
+    PRINT(carry_shift)
+    PRINT(carry_mask)
 
-    // Loop from left to right, shifting bits right in each byte
+    // Loop from left to right, shifting bits right (left shift) in each byte
     for (; left <= right; left++) {
-      tmp = (*left & carry_mask) << carry_shift;
-      *left = carry | (*left >> shift);
+      tmp = (*left & carry_mask) >> carry_shift;
+      *left = (*left << shift) | carry;
       carry = tmp;
       PRINT(*left)
       PRINT(carry)
     }
 
     // Push carry bits into right edge byte
-    *left = carry | (*left & (255 >> shift));
+    *left = (*left & (0xFF << shift)) | carry;
   } else if (shift < 0) {
     shift = -shift;
     carry_shift = 8 - shift;
-    carry_mask = 255 << carry_shift;
+    carry_mask = 0xFF >> carry_shift;
     PRINT(shift)
     PRINT(carry_shift)
     PRINT(carry_mask)
 
     // Loop from right to left, shifting bits left in each byte
     for (; left <= right; right--) {
-      tmp = (*right & carry_mask) >> carry_shift;
-      *right = (*right << shift) | carry;
+      tmp = (*right & carry_mask) << carry_shift;
+      *right = (*right >> shift) | carry;
       carry = tmp;
       PRINT(*right)
       PRINT(carry)
     }
 
-    // Push carry bits int left edge byte
-    *right = (*right & (255 << shift)) | carry;
+    // Push carry bits into left edge byte
+    *right = (*right & (0xFF >> shift)) | carry;
   }
 }
 
@@ -270,8 +271,8 @@ static inline void bitarray_reverse(bitarray_t *const ba,
   bitarray_reverse_bytes(ba, first_byte + 1, last_byte - 1);
 
   // Retrieve edge bytes
-  unsigned char left_edge = *first_byte & ~(255 << left_edge_len);
-  unsigned char right_edge = *last_byte & ~(255 >> right_edge_len);
+  unsigned char left_edge = *first_byte & ~(0xFF >> left_edge_len);
+  unsigned char right_edge = *last_byte & ~(0xFF << right_edge_len);
   PRINT(left_edge)
   PRINT(right_edge)
 
@@ -289,7 +290,8 @@ static inline void bitarray_reverse(bitarray_t *const ba,
   bitarray_shift_bytes(ba, first_byte + 1, last_byte - 1, shift);
 
   // Swap edge bits
-  left_edge  = left_edge >> (8 - left_edge_len);
+  right_edge >>= (8 - right_edge_len);
+  PRINT(right_edge)
   bitarray_set_byterange(ba, bit_off, right_edge_len, right_edge);
   bitarray_set_byterange(ba, bit_off + bit_len - left_edge_len, left_edge_len, left_edge);
 }
