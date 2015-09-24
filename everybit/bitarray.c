@@ -40,7 +40,8 @@
 // #define DEBUG
 
 #ifdef DEBUG
-  #define PRINT(VAR) printf("    "#VAR": %d (%0x)\n", (int)(VAR), (unsigned int)(VAR));
+  #define PRINT(VAR) printf("    "#VAR": %d (%02x)\n", (int)(VAR), (unsigned int)(VAR));
+  #define PRINTP(VAR) printf("    "#VAR": %p\n", (VAR));
 #else
   #define PRINT(VAR)
 #endif
@@ -195,45 +196,80 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
                                         signed char shift) {
   assert(ba);
 
+  uint64_t *cursor64;
+
+  uint64_t carry_mask64;
+  uint64_t carry_shift64;
+  uint64_t carry64 = 0;
+  uint64_t tmp64;
+
   unsigned char carry_mask;
   unsigned char carry_shift;
   unsigned char carry = 0;
   unsigned char tmp;
 
   if (shift > 0) {
-    carry_shift = 8 - shift;
-    carry_mask = 0xFF << carry_shift;
-    PRINT(shift)
-    PRINT(carry_shift)
-    PRINT(carry_mask)
+    cursor64 = (uint64_t *)left;
+    carry_shift64 = 64 - shift;
+    carry_mask64  = 0xFFFFFFFFFFFFFFFF << carry_shift64;
+    carry_shift   = 8 - shift;
+    carry_mask    = 0xFF << carry_shift;
+    //PRINT(shift)
+    //PRINT(carry_shift)
+    //PRINT(carry_mask)
 
-    // Loop from left to right, shifting bits right (left shift) in each byte
-    for (; left <= right; left++) {
+    //for(; cursor + 1 <= (uint64_t *)right; cursor++) {
+    //  tmp = (*cursor & carry_mask64) >> carry_shift64;
+    //  *cursor = (*cursor << shift) | carry;
+    //  carry = tmp;
+    //  PRINT(*cursor)
+    //  PRINT(carry)
+    //}
+
+    // Loop from left to right, shifting bits right (LE left shift) in each byte
+    for (left = (unsigned char *)left; left <= right; left++) {
       tmp = (*left & carry_mask) >> carry_shift;
       *left = (*left << shift) | carry;
       carry = tmp;
-      PRINT(*left)
-      PRINT(carry)
+      //PRINT(*left)
+      //PRINT(carry)
     }
 
     // Push carry bits into right edge byte
     *left = (*left & (0xFF << shift)) | carry;
   } else if (shift < 0) {
     shift = -shift;
-    carry_shift = 8 - shift;
-    carry_mask = 0xFF >> carry_shift;
-    PRINT(shift)
-    PRINT(carry_shift)
-    PRINT(carry_mask)
+    cursor64 = (uint64_t *)(right - 7);
+    carry_shift64 = 64 - shift;
+    carry_mask64  = 0xFFFFFFFFFFFFFFFF >> carry_shift64;
+    carry_shift   = 8 - shift;
+    carry_mask    = 0xFF >> carry_shift;
+    //PRINT(shift)
+    //PRINT(carry_shift)
+    //PRINT(carry_mask)
 
-    // Loop from right to left, shifting bits left in each byte
+    for(; cursor64 >= (uint64_t *)left; cursor64--) {
+      tmp64 = (*cursor64 & carry_mask64) << carry_shift64;
+      *cursor64 = (*cursor64 >> shift) | carry64;
+      carry64 = tmp64;
+      //PRINTP(cursor64)
+      //PRINT(*cursor64)
+      //PRINT(carry64)
+    }
+
+    carry = (unsigned char)(carry64 >> 56);
+    right = (unsigned char *)cursor64 + 7;
+
+    // Loop from right to left, shifting bits left (LE left shift) in each byte
     for (; left <= right; right--) {
       tmp = (*right & carry_mask) << carry_shift;
       *right = (*right >> shift) | carry;
       carry = tmp;
-      PRINT(*right)
-      PRINT(carry)
+      //PRINTP(right)
+      //PRINT(*right)
+      //PRINT(carry)
     }
+    //PRINTP(right)
 
     // Push carry bits into left edge byte
     *right = (*right & (0xFF >> shift)) | carry;
