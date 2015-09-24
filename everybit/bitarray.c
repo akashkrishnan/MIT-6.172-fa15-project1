@@ -173,13 +173,24 @@ static inline void bitarray_reverse_byte(bitarray_t *const ba,
 static inline void bitarray_reverse_bytes(bitarray_t *const ba,
                                           unsigned char *left,
                                           unsigned char *right) {
-  // TODO(akashk16): possibly reverse all bits first, then swap bytes? [REDUCES PERFORMANCE]
+  // reverse 8 byte chunks
+  //uint64_t *left64 = (uint64_t)left;
+  //uint64_t *right64 = (uint64_t)right;
+  //uint64_t tmp;
+  //while (left < right) {
+  //  tmp = *left
+  //  byte_reverse(left);
+  //  byte_reverse(right);
+  //  left64++;
+  //  right64--;
+  //}
+  
+  // reverse one byte chunks
+  //left = (unsigned *)left64;
+  //right = (unsigned *)right64;
   while (left < right) {
-    byte_reverse(left);
-    byte_reverse(right);
-    byte_swap(left, right);
-    left++;
-    right--;
+    byte_reverse_swap(left, right);
+    left++; right--;
   }
 
   // Reverse middle byte if odd number of bytes

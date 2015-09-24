@@ -21,10 +21,15 @@ inline static void byte_reverse(unsigned char *byte) {
   *byte = byte_reverse_table[*byte];
 }
 
-static inline void byte_swap(unsigned char *a,
-                             unsigned char *b) {
+static inline void byte_swap(unsigned char *a, unsigned char *b) {
   unsigned char tmp = *a;
   *a = *b;
   *b = tmp;
 }
+
+static inline void byte_reverse_swap(unsigned char *a, unsigned char *b) {
+  unsigned char tmp = byte_reverse_table[*a];
+  *a = byte_reverse_table[*b];
+  *b = tmp;
+}                                   
 
