@@ -169,25 +169,9 @@ static inline void bitarray_reverse_byte(bitarray_t *const ba,
   }
 }
 
-// TODO(akashk16): possibly reverse more than one byte at a time? 4 bytes? 8 bytes?
 static inline void bitarray_reverse_bytes(bitarray_t *const ba,
                                           unsigned char *left,
                                           unsigned char *right) {
-  // reverse 8 byte chunks
-  //uint64_t *left64 = (uint64_t)left;
-  //uint64_t *right64 = (uint64_t)right;
-  //uint64_t tmp;
-  //while (left < right) {
-  //  tmp = *left
-  //  byte_reverse(left);
-  //  byte_reverse(right);
-  //  left64++;
-  //  right64--;
-  //}
-  
-  // reverse one byte chunks
-  //left = (unsigned *)left64;
-  //right = (unsigned *)right64;
   while (left < right) {
     byte_reverse_swap(left, right);
     left++; right--;
@@ -224,20 +208,22 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
     carry_shift   = 8 - shift;
     carry_mask    = 0xFF << carry_shift;
 
-    for(; cursor64 < (uint64_t *)(right - 8); cursor64++) {
-      tmp = (*cursor64 & carry_mask64) >> carry_shift64;
-      *cursor64 = (*cursor64 << shift) | carry;
-      carry = tmp;
+    while (cursor64 < (uint64_t *)(right - 8)) {
+      tmp64 = (*cursor64 & carry_mask64) >> carry_shift64;
+      *cursor64 = (*cursor64 << shift) | carry64;
+      carry64 = tmp64;
+      cursor64++;
     }
 
     carry = (unsigned char)carry64;
     cursor = (unsigned char *)cursor64;
 
     // Loop from left to right, shifting bits right (LE left shift) in each byte
-    for (; cursor <= right; cursor++) {
+    while (cursor <= right) {
       tmp = (*cursor & carry_mask) >> carry_shift;
       *cursor = (*cursor << shift) | carry;
       carry = tmp;
+      cursor++;
     }
 
     // Push carry bits into right edge byte
@@ -250,20 +236,22 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
     carry_shift   = 8 - shift;
     carry_mask    = 0xFF >> carry_shift;
 
-    for(; cursor64 >= (uint64_t *)left; cursor64--) {
+    while (cursor64 >= (uint64_t *)left) {
       tmp64 = (*cursor64 & carry_mask64) << carry_shift64;
       *cursor64 = (*cursor64 >> shift) | carry64;
       carry64 = tmp64;
+      cursor64--;
     }
 
     carry = (unsigned char)(carry64 >> 56);
     cursor = (unsigned char *)cursor64 + 7;
 
     // Loop from right to left, shifting bits left (LE left shift) in each byte
-    for (; cursor >= left; cursor--) {
+    while (cursor >= left) {
       tmp = (*cursor & carry_mask) << carry_shift;
       *cursor = (*cursor >> shift) | carry;
       carry = tmp;
+      cursor--;
     }
 
     // Push carry bits into left edge byte
