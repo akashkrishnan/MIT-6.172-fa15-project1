@@ -208,16 +208,15 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
 
   if (shift > 0) {
     cursor64 = (uint64_t *)left;
-    carry_shift64 = sizeof(carry_shift64) - shift;
+    carry_shift64 = 64 - shift;
     carry_mask64  = 0xFFFFFFFFFFFFFFFF << carry_shift64;
-    carry_shift   = sizeof(carry_shift) - shift;
+    carry_shift   = 8 - shift;
     carry_mask    = 0xFF << carry_shift;
 
     for(; cursor64 < (uint64_t *)(right - 8); cursor64++) {
       tmp = (*cursor64 & carry_mask64) >> carry_shift64;
       *cursor64 = (*cursor64 << shift) | carry;
       carry = tmp;
-      PRINTP(cursor64)
     }
 
     carry = (unsigned char)carry64;
@@ -228,7 +227,6 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
       tmp = (*cursor & carry_mask) >> carry_shift;
       *cursor = (*cursor << shift) | carry;
       carry = tmp;
-      PRINTP(left)
     }
 
     // Push carry bits into right edge byte
@@ -236,9 +234,9 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
   } else if (shift < 0) {
     shift = -shift;
     cursor64 = (uint64_t *)(right - 7);
-    carry_shift64 = sizeof(carry_shift64) - shift;
+    carry_shift64 = 64 - shift;
     carry_mask64  = 0xFFFFFFFFFFFFFFFF >> carry_shift64;
-    carry_shift   = sizeof(carry_shift) - shift;
+    carry_shift   = 8 - shift;
     carry_mask    = 0xFF >> carry_shift;
 
     for(; cursor64 >= (uint64_t *)left; cursor64--) {
