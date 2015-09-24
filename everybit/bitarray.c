@@ -208,9 +208,9 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
 
   if (shift > 0) {
     cursor64 = (uint64_t *)left;
-    carry_shift64 = 64 - shift;
+    carry_shift64 = sizeof(carry_shift64) - shift;
     carry_mask64  = 0xFFFFFFFFFFFFFFFF << carry_shift64;
-    carry_shift   = 8 - shift;
+    carry_shift   = sizeof(carry_shift) - shift;
     carry_mask    = 0xFF << carry_shift;
 
     for(; cursor64 < (uint64_t *)(right - 8); cursor64++) {
@@ -221,24 +221,24 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
     }
 
     carry = (unsigned char)carry64;
-    left = (unsigned char *)cursor64;
+    cursor = (unsigned char *)cursor64;
 
     // Loop from left to right, shifting bits right (LE left shift) in each byte
-    for (; left <= right; left++) {
-      tmp = (*left & carry_mask) >> carry_shift;
-      *left = (*left << shift) | carry;
+    for (; cursor <= right; cursor++) {
+      tmp = (*cursor & carry_mask) >> carry_shift;
+      *cursor = (*cursor << shift) | carry;
       carry = tmp;
       PRINTP(left)
     }
 
     // Push carry bits into right edge byte
-    *left = (*left & (0xFF << shift)) | carry;
+    *cursor = (*cursor & (0xFF << shift)) | carry;
   } else if (shift < 0) {
     shift = -shift;
     cursor64 = (uint64_t *)(right - 7);
-    carry_shift64 = 64 - shift;
+    carry_shift64 = sizeof(carry_shift64) - shift;
     carry_mask64  = 0xFFFFFFFFFFFFFFFF >> carry_shift64;
-    carry_shift   = 8 - shift;
+    carry_shift   = sizeof(carry_shift) - shift;
     carry_mask    = 0xFF >> carry_shift;
 
     for(; cursor64 >= (uint64_t *)left; cursor64--) {
@@ -248,17 +248,17 @@ static inline void bitarray_shift_bytes(bitarray_t *const ba,
     }
 
     carry = (unsigned char)(carry64 >> 56);
-    right = (unsigned char *)cursor64 + 7;
+    cursor = (unsigned char *)cursor64 + 7;
 
     // Loop from right to left, shifting bits left (LE left shift) in each byte
-    for (; left <= right; right--) {
-      tmp = (*right & carry_mask) << carry_shift;
-      *right = (*right >> shift) | carry;
+    for (; cursor >= left; cursor--) {
+      tmp = (*cursor & carry_mask) << carry_shift;
+      *cursor = (*cursor >> shift) | carry;
       carry = tmp;
     }
 
     // Push carry bits into left edge byte
-    *right = (*right & (0xFF >> shift)) | carry;
+    *cursor = (*cursor & (0xFF >> shift)) | carry;
   }
 }
 
