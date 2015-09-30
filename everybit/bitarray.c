@@ -174,7 +174,8 @@ static inline void bitarray_reverse_bytes(bitarray_t *const ba,
                                           unsigned char *right) {
   while (left < right) {
     byte_reverse_swap(left, right);
-    left++; right--;
+    left++;
+    right--;
   }
 
   // Reverse middle byte if odd number of bytes
