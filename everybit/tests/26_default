@@ -1,0 +1,208 @@
+# Copyright (c) 2012 MIT License by 6.172 Staff
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+# 0: headerexample (Verify the examples given in bitarray.h)
+t 0
+
+n 10010110
+r 0 8 -1
+e 00101101
+
+# 1: second headerexample (Verify the examples given in bitarray.h)
+t 1
+
+n 10010110
+r 2 5 2
+e 10110100
+
+
+# 2: 8bit
+t 2
+
+n 10000101
+r 0 8 0
+e 10000101
+
+r 0 8 1
+e 11000010
+
+r 0 8 -1
+e 10000101
+
+r 0 8 -1
+e 00001011
+
+r 0 8 -11
+e 01011000
+
+
+# 3: 16bit
+
+t 3
+
+n 1001010001000011
+
+#### basic rotation
+r 0 8 0
+e 1001010001000011
+
+#### rotation across bytes
+r 0 14 1
+e 0100101000100011
+
+#### rotation across bytes with wraparound
+r 3 9 12
+e 0100100101000011
+
+#### full array rotation
+r 0 16 2
+e 1101001001010000
+
+#### left rotation across bytes
+r 2 14 -1
+e 1110010010100000
+
+#### sub-byte size rotation across bytes
+r 5 5 4
+e 1110000101100000
+
+#### left rotation across bytes with wraparound
+r 3 11 -48
+e 1111011000000000
+
+
+# 4: 4 byte
+
+t 4
+
+# 0xDEADBEEF
+n 11011110101011011011111011101111
+
+#### sub-byte rotation
+r 0 5 1
+e 11101110101011011011111011101111
+
+# reset to )xdeadbeef
+n 11011110101011011011111011101111
+#### rightward byte-aligned rotation
+r 8 16 8
+e 11011110101111101010110111101111
+
+#### leftward byte-aligned rotation 
+r 16 16 -8
+e 11011110101111101110111110101101
+
+#### rotation rightward, byte-aligned, full array
+r 0 32 24
+e 10111110111011111010110111011110
+
+#### leftward rotation, misaligned
+r 5 23 17
+e 10111011111010110111011101111110
+
+#### rightward rotation, semi-aligned, wraparound
+r 8 21 51
+e 10111011011101111111010110111110
+
+#### additional coverage
+r 2 11 -3
+r 0 32 1
+r 0 2 1
+e 10001101110111111111101011011111
+
+r 11 16 6
+r 0 4 -1
+e 00011101110010110111111111111111
+
+r 0 10 7
+e 11101110000010110111111111111111
+
+r 3 4 3
+e 11111100000010110111111111111111
+
+r 12 5 1
+r 13 2 1
+e 11111100000000111111111111111111
+
+r 0 7 1
+r 7 25 -7
+e 01111111111111111111111110000000
+
+
+# 5: 29 bit
+
+t 5
+
+n 01011110111011011101000010001
+
+#### first byte tests
+r 0 4 1
+e 10101110111011011101000010001
+
+r 0 8 -11
+e 01110101111011011101000010001
+
+
+#### last byte tests
+r 25 4 -3
+e 01110101111011011101000011000
+
+r 21 8 5
+e 01110101111011011101011000000
+
+#### multi-byte tests
+r 0 29 14
+e 11101011000000011101011110110
+
+r 1 27 -12
+e 10011101011110111101011000000
+
+r 2 26 -42
+e 10010110000001110101111011110
+
+r 5 24 36
+e 10010101111011110110000001110
+
+#### moving frame test
+r 0 24 3
+e 00010010101111011110110001110
+
+r 1 24 -4
+e 00101011110111101100000101110
+
+r 2 24 5
+e 00001011010111101111011000110
+
+r 3 24 -6
+e 00010111101111011000101011010
+
+r 4 24 7
+e 00010101101011110111101100010
+
+r 5 24 -9
+e 00010110111101100010101101011

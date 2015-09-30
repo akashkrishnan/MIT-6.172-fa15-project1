@@ -1,0 +1,7 @@
+# Rotate a subarray of length one, which shouldn't
+# change the structure of the array.
+t 0
+
+n 01101100
+r 2 1 5
+e 01101100

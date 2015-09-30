@@ -1,0 +1,112 @@
+# Copyright (c) 2012 MIT License by 6.172 Staff
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+###################################
+# 1: 32 bit array
+t 1
+n 10010100110111101001010101010101
+
+# straddles different byte boundaries on both ends
+r 4 20 3
+e 10011010100110111101001001010101
+
+r 4 20 -3
+e 10010100110111101001010101010101
+
+r 4 20 8
+e 10011001010101001101111001010101
+
+r 4 20 -8
+e 10010100110111101001010101010101
+
+r 4 20 18
+e 10010011011110100101010101010101
+
+r 4 20 -18
+e 10010100110111101001010101010101
+
+r 4 20 16
+e 10011101111010010101010001010101
+
+r 4 20 25
+e 10011010011011110100101001010101
+
+# all within one byte
+r 9 5 10
+e 10011010011011110100101001010101
+
+r 9 5 -10
+e 10011010011011110100101001010101 
+
+r 9 7 4
+e 10011010011111100100101001010101
+
+r 9 7 -4
+e 10011010011011110100101001010101
+
+r 3 4 3 
+e 10010110011011110100101001010101
+
+# straddles one byte boundary
+r 14 5 10
+e 10010110011011110100101001010101
+
+r 14 4 3
+e 10010110011011101100101001010101
+
+r 14 3 -3
+e 10010110011011101100101001010101
+
+r 14 8 15 
+e 10010110011011011001011001010101
+
+r 14 8 -15
+e 10010110011011101100101001010101
+
+# straddles three byte boundaries
+
+r 0 26 10
+e 11001010011001011001101110010101
+
+r 0 26 -10
+e 10010110011011101100101001010101
+
+r 0 26 4
+e 10011001011001101110110010010101
+
+r 4 22 15
+e 10010011011101100101001011010101
+
+r 4 22 -15
+e 10011001011001101110110010010101
+
+r 4 22 30
+e 10011011001010010110011011010101
+
+r 4 22 -30
+e 10011001011001101110110010010101

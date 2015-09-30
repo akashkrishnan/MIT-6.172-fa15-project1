@@ -1,0 +1,47 @@
+# Tests bitarray sizes
+
+# missing: 
+#   bit_sz = 0
+#   bit_sz some power of 8 (!= 8)
+
+# 0: bit_sz = 1
+t 0
+
+n 0
+r 0 1 1
+e 0
+
+# 1: 1 < bit_sz < 8 (small even)
+t 1
+
+n 01
+r 0 2 1
+e 10
+
+# 2: 1 < bit_sz < 8 (small odd)
+t 2
+
+n 01010
+r 1 2 3
+e 00110
+
+# 3: bit_sz = 8
+t 3
+
+n 01100110
+r 2 4 3
+e 01001110
+
+# 4: bit_sz > 8 (big even)
+t 4
+
+n 011010010110
+r 3 6 4
+e 011001001110
+
+# 5: bit_sz > (big odd)
+t 5
+
+n 0110100101101
+r 2 9 3
+e 0101110100101

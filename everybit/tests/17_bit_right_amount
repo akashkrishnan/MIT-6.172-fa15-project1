@@ -1,0 +1,88 @@
+# Tests bit_right_amount sizes
+
+# missing
+# 
+
+# 0: bit_right_amount = 0 
+t 0
+
+n 010
+r 1 1 0
+e 010
+
+# 1: bit_right_amount = 1
+t 1
+
+n 010
+r 1 2 1
+e 001
+
+# 2: 1 < bit_right_amount < 8 (small even)
+t 2
+
+n 0100
+r 1 3 4
+e 0010
+
+# 3: 1 < bit_right_amount < 8 (small odd)
+t 3
+
+n 0100
+r 1 3 5
+e 0001
+
+# 4: bit_right_amount = 8
+t 4
+
+n 0011
+r 1 3 8
+e 0110
+
+# 5: bit_right_amount > 8 (big even)
+t 5
+
+n 01001111
+r 1 5 14
+e 00011111
+
+# 6: bit_right_amount > 8 (big odd)
+t 6
+
+n 11110100
+r 2 3 19
+e 11011100
+
+# 7: bit_right_amount divisible by 8
+t 7
+
+n 10101011
+r 2 5 16
+e 10110101
+
+# 8: bit_right_amount divisible by bit_length
+t 8
+
+n 110011100011 
+r 9 2 64
+e 110011100011
+
+# 9: bit_right_amount = -1
+t 9
+
+n 101
+r 1 2 -1
+e 110
+
+# 10: bit_right_amount large negative number
+t 10
+
+n 10101
+r 1 3 -20
+e 10011
+
+# 11: bit_right_amount large negative number divisible by bit_length
+t 11
+
+n 10110110
+r 2 5 -100
+e 10110110

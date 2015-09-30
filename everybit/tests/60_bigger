@@ -1,0 +1,79 @@
+# Copyright (c) 2012 MIT License by 6.172 Staff
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+# 0: headerexample (Verify the examples given in bitarray.h)
+t 0
+
+n 10010110
+r 0 8 -1
+e 00101101
+
+# 1: second headerexample (Verify the examples given in bitarray.h)
+t 1
+
+n 10010110
+r 2 5 2
+e 10110100
+
+
+# 2: 8bit
+t 2
+
+n 10000101
+r 0 8 0
+e 10000101
+
+r 0 8 1
+e 11000010
+
+r 0 8 -1
+e 10000101
+
+r 0 8 -1
+e 00001011
+
+r 0 8 -11
+e 01011000
+
+# 3: 24 bit
+t 3
+
+n 111110110001000110000011
+r 13 6 38
+e 111110110001000001100011
+
+# 4 : 100 bit
+n 0111010000010000100000100111100010100011111001001101000110000001111100101110001100000011101011010101
+r 9 23 -24
+e 0111010000100001000001001111000010100011111001001101000110000001111100101110001100000011101011010101
+
+r 65 19 62
+e 0111010000100001000001001111000010100011111001001101000110000001110000111001011100010011101011010101
+
+r 43 46 306
+e 0111010000100001000001001111000010100011111000011100001110010111000100111001001101000110001011010101

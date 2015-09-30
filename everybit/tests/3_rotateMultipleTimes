@@ -1,0 +1,11 @@
+# Rotate small array multiple times
+t 0
+n 10110110
+r 0 8 25
+e 01011011
+
+# Rotate larger array multiple times
+t 1
+n 1011011011010001
+r 0 16 34
+e 0110110110110100

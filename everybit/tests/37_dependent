@@ -1,0 +1,7 @@
+# 0: parameters dependent
+
+# bit_right_amt == bit_length
+t 0
+n 100101010111110110100101101
+r 0 10 10
+e 100101010111110110100101101

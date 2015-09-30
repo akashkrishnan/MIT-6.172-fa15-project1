@@ -1,0 +1,60 @@
+# Copyright (c) 2012 MIT License by 6.172 Staff
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+
+# --- tests for different offset values -----------
+####################################################
+####################################################
+
+# 9 bit_offset = 0
+t 9
+
+n 001010110111
+r 0 12 3
+e 111001010110
+
+# 10 bit_offset = 1
+t 10
+
+n 111001010110
+r 1 11 3
+e 111011001010
+
+# 11 bit_offset = bit_length / 2
+t 11
+
+n 111011001010
+r 6 6 2
+e 111011100010
+
+# 12 bit_offset = bit_length - 1
+t 12
+
+n 111011100010
+r 11 1 673
+e 111011100010

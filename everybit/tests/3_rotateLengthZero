@@ -1,0 +1,7 @@
+# Rotates a subarray of size zero, which should
+# return the same array.
+t 0
+
+n 01010111
+r 0 0 5
+e 01010111

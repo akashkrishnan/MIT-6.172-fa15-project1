@@ -1,0 +1,6 @@
+# Rotate by the largest possible negative rotation.
+t 0
+
+n 00110101
+r 0 7 -9223372036854775808
+e 00110101

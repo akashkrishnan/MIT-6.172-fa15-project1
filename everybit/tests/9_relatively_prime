@@ -1,0 +1,27 @@
+# 0: k and n are relatively prime, entire array
+t 0
+
+n 1111000
+r 0 7 3
+e 0001111
+
+# 1: k and n are relatively prime, subarray
+t 1
+
+n 1111000
+r 0 5 3
+e 1101100
+
+# 2: k and n are not relatively prime, entire array
+t 2
+
+n 11001100
+r 0 8 4
+e 11001100
+
+# 3: k and n are not relatively prime, subarray
+t 3
+
+n 11001100
+r 0 4 2
+e 00111100

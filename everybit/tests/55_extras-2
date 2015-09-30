@@ -1,0 +1,48 @@
+# Test when length (4) and amount right (-6) aren't relatively prime
+t 0
+n 10110000
+r 0 4 -6
+e 11100000
+
+# Not relatively prime check again
+t 7
+n 10101000 
+r 1 6 9
+e 11000100
+
+
+# Test when length (1) is rotated once to the right
+t 1
+n 10101111
+r 0 1 1
+e 10101111
+
+# Test when length (1) is rotated once to the left
+t 2
+n 10101111
+r 0 1 -1
+e 10101111
+
+# Test when length (1) is rotated multiple times to the right
+t 3
+n 10010010
+r 1 1 -5
+e 10010010
+
+# Test when length (1) is rotated multiple times to the left
+t 4
+n 10010010
+r 1 1 7
+e 10010010
+
+# Test when length is rotated by a multiple of itself to the right
+t 5
+n 10101000
+r 0 4 8
+e 10101000
+
+# Test when length is rotated by a multiple of itself to the left
+t 6
+n 10010101
+r 3 3 -9
+e 10010101

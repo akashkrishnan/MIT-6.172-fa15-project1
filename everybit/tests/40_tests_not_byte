@@ -1,0 +1,158 @@
+# Copyright (c) 2012 MIT License by 6.172 Staff
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+# 0: rotate by 0
+t 0
+
+n 00011101011
+r 0 0 0
+e 00011101011
+
+n 00011101011
+r 0 11 0
+e 00011101011
+
+n 00011101011
+r 1 6 0
+e 00011101011
+
+n 00011101011
+r 10 0 0
+e 00011101011
+
+# 1: rotate by +- len(subarray)
+
+n 00011101011
+r 0 2 2
+e 00011101011
+
+n 00011101011
+r 3 7 7
+e 00011101011
+
+n 00011101011
+r 2 6 6
+e 00011101011
+
+n 00011101011
+r 2 5 -5
+e 00011101011
+
+n 00011101011
+r 0 11 11
+e 00011101011
+
+# 2: rotate by +- >len(subarray)
+
+n 00011101011
+r 6 2 8
+e 00011101011
+
+n 00011101011
+r 1 5 8
+e 01110001011
+
+n 00011101011
+r 3 4 7
+e 00011011011
+
+n 00011101011
+r 3 2 -16
+e 00011101011
+
+n 00011101011
+r 4 7 -10
+e 00011011110
+
+# 3: rotate by +- <len(subarray)
+
+n 00011101011
+r 6 2 1
+e 00011110011
+
+n 00011101011
+r 1 10 6
+e 01010110011
+
+n 00011101011
+r 1 7 -5
+e 00100111011
+
+n 00011101011
+r 6 4 -2
+e 00011101011
+# rotate entire string by all possible steps
+
+n 00011101011
+r 0 11 0
+e 00011101011
+
+n 00011101011
+r 0 11 1
+e 10001110101
+
+n 00011101011
+r 0 11 2
+e 11000111010
+
+n 00011101011
+r 0 11 3
+e 01100011101
+
+n 00011101011
+r 0 11 4
+e 10110001110
+
+n 00011101011
+r 0 11 5
+e 01011000111
+
+n 00011101011
+r 0 11 6
+e 10101100011
+
+n 00011101011
+r 0 11 7
+e 11010110001
+
+n 00011101011
+r 0 11 8
+e 11101011000
+
+n 00011101011
+r 0 11 9
+e 01110101100
+
+n 00011101011
+r 0 11 10
+e 00111010110
+
+n 00011101011
+r 0 11 11
+e 00011101011
+

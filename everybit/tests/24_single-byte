@@ -1,0 +1,64 @@
+# 0: size 1 array
+t 0
+
+n 1
+r 0 1 2
+e 1
+
+r 0 1 1
+e 1
+
+r 0 0 1
+e 1
+
+# 1: size 1 subarray of larger array
+t 1
+
+n 10110
+r 4 1 27
+e 10110
+
+# 2: juggling with non-relatively prime numbers
+t 2
+
+n 10110110
+r 4 4 2
+e 10111001
+
+r 0 8 4
+e 10011011
+
+# 3: large rotations by multiple of array length
+t 3
+n 10000100
+r 0 8 32
+e 10000100
+
+r 0 8 -32
+e 10000100
+
+# 4: large rotations by amounts greater than array length
+t 4
+
+n 10000100
+r 0 8 27
+e 10010000
+
+# 5: 0 length array
+t 5
+
+n 11110000
+r 4 0 6
+e 11110000
+
+#6: array that is not a full-length byte
+t 6
+
+n 1100110
+
+r 0 7 7
+e 1100110
+
+r 2 3 2
+e 1101010
+

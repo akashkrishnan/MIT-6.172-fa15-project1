@@ -1,0 +1,238 @@
+# Test partitions
+# Bit_length 0
+# Bit_length 1
+# Bit_offset at end
+# Bit_offset at middle
+
+# negative/positve
+#	-0 rotations
+#	-1 rotation
+#	-more than 1
+#	-exactly bit_length
+#	-more than bit_length
+#	-a lot more than bit length
+
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+#Tests for bit_length 0
+#1: zero rotation
+t 1
+
+n 011
+r 1 0 0
+e 011
+
+#2: -1 rotation
+t 2
+
+n 011
+r 1 0 -1
+e 011
+
+#3: large rotation
+t 3
+
+n 011
+r 1 0 -5000
+e 011
+
+#4: 1 rotation
+t 4
+
+n 011
+r 1 0 1
+e 011
+
+#5: large rotation
+t 5
+
+n 011
+r 1 0 4000
+e 011
+
+
+#Tests for byte length array with bit_length of 1
+
+#6: rotate by 0
+t 6
+
+n 01101011
+r 3 1 0
+e 01101011
+
+#7: rotate by -1
+t 7
+
+n 01101011
+r 4 1 -1
+e 01101011
+
+#8: rotate by more than bit length
+t 8
+
+n 01101011
+r 5 1 -6
+e 01101011
+
+#9: rotate by a lot more negative than bit length
+t 9 
+
+n 01101011
+r 6 1 -9000
+e 01101011
+
+#10: rotate by 1
+t 10
+
+n 01101011
+r 2 1 1
+e 01101011
+
+#11: rotate by more than 1
+t 11
+
+n 01101011
+r 3 1 4
+e 01101011
+
+#12: rotate by a lot more than bit length
+t 12
+
+n 01101011
+r 7 1 10000
+e 01101011
+
+#Tests for bit offset at the end
+
+#13: rotate by 0
+
+t 13
+n 11010010
+r 7 1 0
+e 11010010
+
+#14: rotate by -1
+t 14
+
+n 11010010
+r 7 1 -1
+e 11010010
+
+#15: rotate by more than -1
+t 15
+
+n 11010010
+r 7 1 -5
+e 11010010
+
+#16: rotate by a lot more than bit length
+t 16
+
+n 11010010
+r 7 1 -10000
+e 11010010
+
+#17: rotate by 1
+t 17
+
+n 11010010
+r 7 1 1
+e 11010010
+
+#18: rotate by more than 1
+t 18
+
+n 11010010
+r 7 1 7
+e 11010010
+
+#19: rotate by a lot more than bit length
+t 19
+
+n 11010010
+r 7 1 10000
+e 11010010
+
+#Tests for bit offset in the middle
+
+#20: rotate by 0
+t 20
+
+n 110100100
+r 3 3 0
+e 110100100
+
+#21: rotate by -1
+t 21
+
+n 110100100
+r 3 3 -1
+e 110001100
+
+#22: rotate by more than -1
+t 22
+
+n 110100100
+r 3 4 -3
+e 110110000
+
+#23: rotate by exactly negative bit length
+t 23
+
+n 110100100
+r 3 4 -4
+e 110100100
+
+#24: rotate by 1 
+t 24
+
+n 110100100
+r 3 3 1
+e 110010100
+
+#25: rotate by more than 1
+t 25
+
+n 110100100
+r 3 4 2
+e 110011000
+
+#26: rotate by exactly bit length 
+t 26
+
+n 110100100
+r 3 4 3
+e 110001100
+
+#27: rotate by more than bit length
+t 27
+
+n 110100100
+r 3 4 6
+e 110011000
+
+#28: rotate by a lot more than bit length
+t 28
+
+n 110100100
+r 3 4 4001
+e 110110000
+
+#29: rotate by more than negative bit length
+t 29
+
+n 110100100
+r 3 4 -6
+e 110011000
+
+#30: rotate by a lot more than negative bit length
+t 30 
+
+n 110100100
+r 3 4 -4002
+e 110011000 

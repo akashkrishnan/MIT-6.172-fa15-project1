@@ -1,0 +1,55 @@
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+# 0 length with 0 shift
+t: 0
+n: 001110
+r: 0 0 0
+e: 001110
+
+# 0 length with non-0 shift
+t: 1
+n: 001110
+r: 0 0 1
+e: 001110
+
+# non-0 length with 0 shift
+t: 2
+n: 001110
+r: 0 5 0
+e: 001110
+
+# non-0 length with INT_MAX shift
+t: 3
+n: 001110
+r: 0 5 2147483647
+e: 110010
+
+# non-0 length with -INT_MAX shift
+t: 4
+n: 001110
+r: 0 5 -2147483647
+e: 111000
+
+# non-0 length with overflow shift
+t: 5
+n: 001110
+r: 0 5 2147483648
+e: 110010
+
+# non-0 length with -overflow shift
+t: 6
+n: 001110
+r: 0 5 -2147483648
+e: 110010
+
+# non-0 length starting from the end by a negative number
+t 7
+n 01101011
+r 0 8 -4
+e 10110110
+

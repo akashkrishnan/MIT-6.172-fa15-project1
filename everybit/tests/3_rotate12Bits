@@ -1,0 +1,7 @@
+# This test checks to ensure that arrays with two not
+# quite full bytes are properly rotated.
+t 0
+
+n 011011101010
+r 1 11 -6
+e 001010110111

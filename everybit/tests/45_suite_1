@@ -1,0 +1,83 @@
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+# 0: example 0
+t 0
+
+n 10010110
+r 0 8 -1
+e 00101101
+
+# 1: uisng wrap-around				ASSERTION ERROR!!!
+# t 1
+
+# n 10010110
+# r 3 7 1
+# e 10001011
+
+# 2: negative offset
+# t 2
+
+# n 10010110
+# r -1 5 1
+# e 00000000
+
+# 3: negative length
+# t 3
+
+# n 10010110
+# r 0 -2 1
+# e 00000000
+
+# 4: offset > array size (wrap around)		ASSERTION ERROR!!!
+# t 4
+
+# n 10010110
+# r 8 3 1
+# e 00000000
+
+# 5: reverse-defined window
+# t 5
+
+# n 10010110
+# r 4 -2 1
+# e 00000000
+
+# 6: length > array size			ASSERTION ERROR!!!
+# t 6
+
+# n 10010110
+# r 0 9 1
+# e 00000000
+
+# 7: 0 length?
+t 7
+
+n 10010110
+r 0 0 1
+e 10010110
+
+# 8: 1 length
+t 8
+
+n 10010110
+r 0 1 1
+e 10010110
+
+# 9: n is blank					ASSERTION ERROR!!!
+# t 9
+
+# n 
+# r 0 0 0
+# e 
+
+# 10: valid subarray, wraparound due to rotate
+t 10
+
+n 10010110
+r 0 8 8
+e 10010110

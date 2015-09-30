@@ -1,0 +1,32 @@
+# bit_right_amount not relatively prime to bit_length
+t 0
+
+n 001011
+r 0 6 3
+e 011001
+
+t 1
+
+n 0000010101
+r 0 10 6
+e 0101010000
+
+# bit_right_amount > bit_length
+t 2
+n 0100
+r 0 2 12345
+e 1000
+
+# bit_right_amount = 0
+t 3
+
+n 01001001
+r 1 4 0
+e 01001001
+
+# bit_right_amount < 0
+t 4
+
+n 01001001
+r 1 4 -3
+e 01100001

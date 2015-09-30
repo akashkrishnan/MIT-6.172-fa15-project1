@@ -1,0 +1,6 @@
+# Rotate by a relatively prime amount.
+t 0
+
+n 01110101
+r 0 8 -3
+e 10101011

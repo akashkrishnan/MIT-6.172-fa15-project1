@@ -1,0 +1,150 @@
+# Test partitions
+
+# Medium rotation in the middle
+# Large rotation in the middle
+# Rotation starting at 0 index going to middle
+# Rotation starting in middle ending at last index
+
+# Reverse bytes in middle of a single byte
+# Reverse bits between two consecutive bytes
+# Reverse bits between three consecutive bytes
+# Reverse bits between four consecutive bytes
+#
+# If people are doing bit hacks where they do full byte reverses, these three cases will check for the ways they can do that.
+
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+
+# Test 1: Medium rotation in the middle
+
+# Rotate middle of array right by 7
+t 1
+
+n 01001100011100001111010110111001001100000101111001
+r 12 18 7
+e 01001100011111011100000111101001001100000101111001
+
+# Rotate middle of array left by 3
+t 2
+
+n 01001100011100001111010110111001001100000101111001
+r 12 18 -3
+e 01001100011101111010110111000001001100000101111001
+
+# Test 2: Larger Middle
+
+# Rotate middle of array right by 7
+t 3
+
+n 01001100011100001111010110111001001100000101111001
+r 3 45 7
+e 01010111100110001110000111101011011100100110000001
+
+# Rotate middle of array left by 3
+t 4
+
+n 01001100011100001111010110111001001100000101111001
+r 3 45 -3
+e 01000011100001111010110111001001100000101111001101
+
+# Test 3: 0th index to middle
+
+# Rotate start to middle to the right 7
+t 5
+
+n 01001100011100001111010110111001001100000101111001
+r 0 35 7
+e 10010010100110001110000111101011011100000101111001
+
+# Rotate to the left by 3
+t 6
+
+n 01001100011100001111010110111001001100000101111001
+r 0 35 -3
+e 01100011100001111010110111001001010100000101111001
+
+# Test 4: Middle to End
+
+# Rotate array to the right by 7
+t 7
+
+n 01001100011100001111010110111001001100000101111001
+r 35 15 7 
+e 01001100011100001111010110111001001111100110000010
+
+# Rotate array to the left by 3
+t 8
+
+n 01001100011100001111010110111001001100000101111001
+r 35 15 -3 
+e 01001100011100001111010110111001001000101111001100
+
+# Test 5: Reverse bits in middle of single byte
+
+# Positive rotation
+t 9
+
+n 111111110010000011111111
+r 9 4 2
+e 111111110000100011111111
+
+# Negative rotation
+t 10
+
+n 111111110010000011111111
+r 9 4 -1
+e 111111110100000011111111
+
+# Test 6: Reverse bits between two consecutive bytes
+
+# Positive rotation
+t 11
+ 
+n 1111111100000000
+r 4 7 3
+e 1111000111100000
+
+# Negative Rotation
+t 12
+
+n 1100110011110000
+r 4 7 -2
+e 1100001111110000
+
+# Test 7: Reverse bits between three consecutive bytes
+
+# Positive Rotation
+t 13
+
+n 111100001010101011100000
+r 4 16 3
+n 111111000001010101010000
+
+# Negative Rotation
+t 14
+
+n 111100001010101011100000
+r 5 16 -2
+e 111100101010101110000000
+
+# Test 8: Reverse bits between four consecutive bytes
+
+# Positive Rotation
+t 15
+ 
+n 11001100101010101110001100001111
+r 3 26 9
+e 11000110000101100101010101110111 
+
+# Negative Rotation
+t 16
+
+n 1100110010101010111000110000111
+r 3 25 -3 
+e 1100010101010111000110000011111
+ 

@@ -1,0 +1,97 @@
+############ 0: bit_right_amount
+t 0
+
+# bit_right_amount = 0
+n 0100101001010101
+r 0 16 0
+e 0100101001010101
+
+# bit_right_amount = 1
+n 01100111001001011101
+r 4 10 1
+e 01101011100100011101
+
+# bit_right_amount = -1
+n 101010011010010
+r 0 8 -1
+e 010100111010010
+
+# bit_right_amount = half length
+n 0101001011011110
+r 0 16 8
+e 1101111001010010
+
+n 0101101110
+r 2 6 3
+e 0101101110
+
+# bit_right_amount = full length
+n 01011
+r 0 5 5
+e 01011
+
+n 0111010101
+r 0 4 4
+e 0111010101
+
+# bit_right_amount = greater than full length
+n 101101
+r 0 2 3
+e 011101
+
+# bit_right_amount = even
+n 10100101010101
+r 3 8 4
+e 10110100010101
+
+# bit_right_amount = odd
+n 10101010011111
+r 0 10 7
+e 01010011011111
+
+# bit_right_amount = power of 2
+n 101010110101
+r 2 10 8
+e 101011010110
+
+# bit_right_amount = -half length
+n 100101011010
+r 0 12 -6
+e 011010100101
+
+n 1001010101
+r 2 6 -3
+e 1010101001
+
+# bit_right_amount = -full length
+n 100110101101
+r 0 12 -12
+e 100110101101
+
+n 1010101010
+r 3 4 -4
+e 1010101010
+
+# bit_right_amount = -greater than full length
+n 100101
+r 0 2 -4
+e 100101
+
+n 1010
+r 0 4 -5
+e 0101
+
+# bit_right_amount = -even
+n 1010101010
+r 4 5 -4
+e 1010110100
+
+# bit_right_amount = -odd
+n 1010101111111
+r 7 6 5
+e 1010101111111
+
+# bit_right_amount = -power of 2
+n 010110101001101010
+r 0 18 -8
+e 100110101001011010

@@ -1,0 +1,64 @@
+# Copyright (c) 2012 MIT License by 6.172 Staff
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+# 30 bit array
+t 1
+n 101001100111001101001011010100
+
+# straddles boundary of last (incomplete) byte
+r 20 10 5 
+e 101001100111001101001010010110
+
+r 20 10 -5
+e 101001100111001101001011010100
+
+r 20 10 12
+e 101001100111001101000010110101
+
+r 20 10 -12
+e 101001100111001101001011010100
+
+# doesn't include last byte
+r 4 10 5
+e 101011100011001101001011010100
+
+r 10 2 4
+e 101011100011001101001011010100
+
+r 20 4 5
+e 101011100011001101001101010100 
+
+# only last byte
+r 25 3 2
+e 101011100011001101001101001100
+
+r 25 3 -2
+e 101011100011001101001101010100
+
+r 25 4 1
+e 101011100011001101001101001010

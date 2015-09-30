@@ -1,0 +1,6 @@
+# Rotates by an amount larger than the subarray.
+t 0
+
+n 10110111
+r 1 5 9
+e 11101011

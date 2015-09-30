@@ -1,0 +1,16 @@
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+t: 0
+n: 100110
+r: 0 6 -61
+e: 001101
+
+t: 0
+n: 100110
+r: 1 5 -41
+e: 101100

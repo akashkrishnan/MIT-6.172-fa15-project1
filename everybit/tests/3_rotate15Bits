@@ -1,0 +1,7 @@
+# Rotate an odd numbered array with two bytes,
+# one of which isn't filled.
+t 0
+
+n 110111100010101
+r 0 15 13
+e 011110001010111

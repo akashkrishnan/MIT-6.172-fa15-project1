@@ -1,0 +1,357 @@
+# Copyright (c) 2012 MIT License by 6.172 Staff
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+
+# Instructions for writing a test:
+#
+# t: initializes new test
+# Copyright (c) 2012 MIT License by 6.172 Staff
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+# 0: size of bitarray is 0
+
+# 1: size of bitarray is 1
+# Partitions tested: bit_offset is 0, bit_length is 0 or 1, bit_right_amount is -1, 0, 1
+
+t 1
+
+n 1
+r 0 1 1
+e 1
+
+t 2 
+
+n 1
+r 0 1 0
+e 1
+
+t 3 
+
+n 1
+r 0 1 -1
+e 1
+
+t 4
+
+n 1
+r 0 0 1
+e 1
+
+t 5 
+
+n 1
+r 0 0 0
+e 1
+
+t 6 
+
+n 1
+r 0 0 -1
+e 1
+
+# 2: size of bitarray is <8 (less than 1 byte)
+# Partitions tested: bit_offset is at the beginning, middle, and end. 
+#					 bit_length is 0, 1, spans the whole array, ends in the middle of the array. 
+#					 bit_right_amount is 0, 1, -1, bit_length, -bit_length, bit_length + k, -(bit_length + k)
+
+t 7 
+
+n 101011
+r 0 0 1
+e 101011 
+
+t 8 
+
+n 101011
+r 0 0 0
+e 101011 
+
+t 9 
+
+n 101011
+r 0 0 -1
+e 101011 
+
+t 10 
+
+n 101011
+r 0 1 1
+e 101011 
+
+t 11 
+
+n 101011
+r 0 1 0
+e 101011 
+
+t 12 
+
+n 101011
+r 0 1 -1
+e 101011 
+
+t 13 
+
+n 101011
+r 0 3 -1
+e 011011 
+
+t 14 
+
+n 101011
+r 0 3 0
+e 101011 
+
+t 15 
+
+n 101011
+r 0 3 1
+e 110011 
+
+t 16 
+
+n 101011
+r 0 3 3
+e 101011 
+
+t 17 
+
+n 101011
+r 0 3 -3
+e 101011 
+
+t 18 
+
+n 101011
+r 0 3 4
+e 110011 
+
+t 19 
+
+n 101011
+r 0 3 -4
+e 011011 
+
+t 20 
+
+n 101011
+r 0 6 1
+e 110101 
+
+t 21 
+
+n 101011
+r 0 6 0
+e 101011 
+
+t 22 
+
+n 101011
+r 0 6 -1
+e 010111 
+
+t 23 
+
+n 101011
+r 0 6 2
+e 111010 
+
+t 24 
+
+n 101011
+r 0 6 -2
+e 101110 
+
+t 25 
+
+n 101011
+r 0 6 6
+e 101011 
+
+t 26 
+
+n 101011
+r 0 6 -6
+e 101011 
+
+t 27 
+
+n 101011
+r 0 6 8
+e 111010 
+
+t 28
+n 101011
+r 0 6 -8
+e 101110 
+
+# 2: size of bitarray is <8 (less than 1 byte) and bit_offset is in the middle
+# Partitions tested: bit_offset is at the beginning, middle, and end. 
+#					 bit_length is 0, 1, spans the whole array, ends in the middle of the array. 
+#					 bit_right_amount is 0, 1, -1, bit_length, -bit_length, bit_length + k, -(bit_length + k)
+t 29
+n 101011
+r 4 2 0 
+e 101011 
+
+t 30
+n 101011
+r 5 0 -1
+e 101011 
+
+t 31 
+n 101011
+r 2 0 1
+e 101011 
+
+t 32
+n 101011
+r 2 0 0
+e 101011 
+
+t 33
+n 101011
+r 2 0 -1
+e 101011 
+
+t 34 
+n 101011
+r 2 1 1
+e 101011 
+
+t 35 
+n 101011
+r 2 1 0
+e 101011 
+
+t 36
+n 101011
+r 2 1 -1
+e 101011 
+
+t 37
+n 101011
+r 2 2 -1
+e 100111
+
+t 38
+n 101011
+r 2 2 0
+e 101011 
+
+t 39
+n 101011
+r 2 2 1
+e 100111
+
+t 40 
+n 101011
+r 2 2 2
+e 101011
+
+t 41
+n 101011
+r 2 2 -2
+e 101011
+
+t 42
+n 101011
+r 2 2 4
+e 101011
+
+t 43
+n 101011
+r 2 2 -4
+e 101011
+
+t 44
+n 101011
+r 2 4 1
+e 101101
+
+t 45
+n 101011
+r 2 4 0
+e 101011 
+
+t 46
+n 101011
+r 2 4 -1
+e 100111
+
+t 47
+n 101011
+r 2 4 2
+e 101110 
+
+t 48
+n 101011
+r 2 4 -2
+e 101110 
+
+t 49
+n 101011
+r 2 4 4
+e 101011 
+
+t 50
+n 101011
+r 2 4 -4
+e 101011 
+
+t 51
+n 101011
+r 2 4 8
+e 101011 
+
+t 52
+n 101011
+r 2 4 -8
+e 101011
+
+t 53
+n 101011
+r 5 0 0
+e 101011
+
+t 54
+n 101011
+r 5 0 1
+e 101011
+
+t 55
+n 101011
+r 5 0 -1
+e 101011
+
+# 3: size of bit array is > 8 (greater than 1 byte)
+t 54
+n 100101101
+r 1 8 -1
+e 101011010
+
+# 4: size of bit array is > 32 (it's 34)
+t 55
+n 1011001000100110001100001101011010
+r 10 10 5
+e 1011001000000111001100001101011010 
+

@@ -1,0 +1,48 @@
+# Anvita and Sara's dope-ass testing suite
+
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+t 3
+# Test something that isn't 8 bits long
+# n here is 12 bits
+n 111111110111
+r 8 4 3
+e 111111111110
+
+t 4
+# What if length is 0?
+n 001101
+r 0 0 5
+e 001101
+
+# What if length is 1?
+r 0 1 3
+e 001101
+
+# Test an odd-length-but-not-length-1 subarray
+n 001001100011
+r 3 9 10
+e 001100110001
+
+# Test a multi-word reversal
+t 5
+n 000000001111111100000000
+r 8 16 8
+e 000000000000000011111111
+
+r 6 16 8
+e 000000001111110000000011
+
+r 8 14 7
+e 000000000000000111111011 
+
+# Test a different multi-word reversal
+t 6
+n 00000000111111111010101011
+r 16 10 3
+e 00000000111111110111010101 

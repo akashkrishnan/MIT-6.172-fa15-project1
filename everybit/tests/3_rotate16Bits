@@ -1,0 +1,6 @@
+# Makes sure that 16 bit (full 2 bytes) rotations are good.
+t 0
+
+n 0111011101010110
+r 3 13 -5
+e 0110101011010111

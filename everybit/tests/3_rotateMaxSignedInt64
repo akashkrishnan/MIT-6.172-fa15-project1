@@ -1,0 +1,6 @@
+# Rotates by the largest possible positive rotation.
+t 0
+
+n 01100111
+r 0 8 9223372036854775807
+e 11001110

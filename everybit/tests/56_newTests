@@ -1,0 +1,80 @@
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+# Testing strategy:
+#
+# 1. size of array: 1 byte (1, 3, 5, 7, 8); 2 byte(10, 12, 14, 16); very big???
+# 2. bits: all 0s; all 1s; mixed 1s and 0s.
+# 3. offset: 0, middle, last
+# 4. length: 0, middle, all
+# 5. amount: 0, to the left/right, number of cycles (<1, >1)
+
+# 0: size 1
+t 0
+
+n 0
+r 0 0 0
+e 0
+
+r 0 0 100
+e 0
+
+# 1: size 1
+t 1
+
+n 1
+r 0 0 0
+e 1
+
+r 0 0 100
+e 1
+
+#2: size 5
+t 2
+
+n 11111
+r 0 2 3
+e 11111
+
+r 0 5 -3
+e 11111
+
+r 4 0 3
+e 11111
+
+#3: size 7
+t 3
+
+n 1011011
+r 0 0 3
+e 1011011
+
+r 6 0 -3
+e 1011011
+
+r 0 7 3
+e 0111011
+
+r 2 5 1
+e 0111101
+
+#4:
+t 4
+
+n 000000011000000000000000
+r 7 3 -1
+e 000000010100000000000000
+
+r 7 10 -1
+e 000000001000000010000000
+
+#5:
+t 5
+
+n 101011100001011101011010
+r 4 9 6
+e 101000001011111101011010 

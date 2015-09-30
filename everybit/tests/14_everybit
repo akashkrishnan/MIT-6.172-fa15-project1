@@ -1,0 +1,102 @@
+# Test 0: Right rotate the middle of the array
+t 0
+n 11010001
+r 2 6 1
+e 11101000
+
+# Test 1: Right rotate the beginning of the array
+t 1
+n 10010110
+r 0 4 2
+e 01100110
+
+# Test 2: Right rotate the end of the array
+t 2
+n 10010110
+r 5 3 4
+e 10010011
+
+# Test 3: Left rotate the middle of the array
+t 3
+n 11010001
+r 2 5 -1
+e 11100001
+
+# Test 4: Left rotate the beginning of the array, six bits, 
+# where right rotate value > length of the subarray to rotate
+t 4
+n 100101
+r 0 4 -9
+e 001101
+
+# Test 5: Left rotate the end of the array
+t 5
+n 100101
+r 3 3 -4
+e 100011
+
+# Test 6: right rotate input that is not an even number of bits 
+t 6
+n 111110101
+r 0 8 8
+e 111110101
+  
+# Test 7: right rotate input that's longer than two bytes
+t 7
+n 100110101110101101000101010010011
+r 3 23 7
+e 100001010111010111010110100010011
+
+# Test 8: left rotate input that's longer than two bytes
+t 8
+n 100110101110101101000101010010011
+r 4 25 -12
+e 100101000101010011010111010110011
+
+# Test 6: Test to rotate a 1-size subarray
+t 6
+n 10011000
+r 2 1 2
+e 10011000
+
+# Test 7: Test to rotate a 0-size subarray
+t 7
+n 10011000
+r 2 0 2
+e 10011000
+
+# Test 8: Test to rotate by 0
+t 8
+n 10011000
+r 3 0 0
+e 10011000
+
+# Test 9: Test to rotate across bytes
+t 9
+n 1000100010101010
+r 4 8 5
+e 1000010101001010
+
+# Test 10: Test to rotate across 1+ bytes
+t 10
+n 100010001010100101010101
+r 6 12 -3
+e 100010010100101001010101
+
+# Test 11: Test to rotate at byte boundary
+t 11
+n 1010101010101010
+r 7 2 3
+e 1010101100101010
+
+# Test 12: Test to rotate by array with size not a multiple of 8
+t 12
+n 110011000011001110101
+r 10 9 -3
+e 110011000001110111001
+
+# Test 13
+t 13
+n 100101000101010011010111010110011
+r 4 25 -12
+e 100111010111010110100010101000011

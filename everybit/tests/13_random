@@ -1,0 +1,3500 @@
+# Random test generated: 
+t 0
+
+n 100001011100001100
+r 15 3 5 
+e 100001011100001001
+
+# Random test generated: 
+t 1
+
+n 1011000
+r 2 1 7 
+e 1011000
+
+# Random test generated: 
+t 2
+
+n 1111000110010
+r 12 1 10 
+e 1111000110010
+
+# Random test generated: 
+t 3
+
+n 11100101010111001
+r 7 1 10 
+e 11100101010111001
+
+# Random test generated: 
+t 4
+
+n 100110010110011100
+r 5 4 9 
+e 100110001110011100
+
+# Random test generated: 
+t 5
+
+n 1011101000000
+r 0 9 7 
+e 1110100100000
+
+# Random test generated: 
+t 6
+
+n 11101000000101110
+r 2 1 8 
+e 11101000000101110
+
+# Random test generated: 
+t 7
+
+n 11011011100110010
+r 7 4 6 
+e 11011010011110010
+
+# Random test generated: 
+t 8
+
+n 1001000000
+r 1 2 5 
+e 1001000000
+
+# Random test generated: 
+t 9
+
+n 11011110101100
+r 7 4 8 
+e 11011110101100
+
+# Random test generated: 
+t 10
+
+n 1110100010011
+r 1 1 8 
+e 1110100010011
+
+# Random test generated: 
+t 11
+
+n 101101110111100110
+r 0 7 7 
+e 101101110111100110
+
+# Random test generated: 
+t 12
+
+n 11000001111010110
+r 5 9 9 
+e 11000001111010110
+
+# Random test generated: 
+t 13
+
+n 101100110010011
+r 1 1 9 
+e 101100110010011
+
+# Random test generated: 
+t 14
+
+n 10110110000110
+r 0 4 8 
+e 10110110000110
+
+# Random test generated: 
+t 15
+
+n 100001001011
+r 2 2 9 
+e 100001001011
+
+# Random test generated: 
+t 16
+
+n 1101111100000
+r 1 12 5 
+e 1000001011111
+
+# Random test generated: 
+t 17
+
+n 11010000110011100111
+r 6 9 8 
+e 11010001100111000111
+
+# Random test generated: 
+t 18
+
+n 101000101010
+r 0 6 5 
+e 010001101010
+
+# Random test generated: 
+t 19
+
+n 10001101111101
+r 7 5 10 
+e 10001101111101
+
+# Random test generated: 
+t 20
+
+n 111111110110011111
+r 13 4 5 
+e 111111110110011111
+
+# Random test generated: 
+t 21
+
+n 1110001011010011001
+r 6 6 9 
+e 1110001011010011001
+
+# Random test generated: 
+t 22
+
+n 1000001110111001001
+r 16 2 9 
+e 1000001110111001001
+
+# Random test generated: 
+t 23
+
+n 111100110110
+r 4 5 7 
+e 111110001110
+
+# Random test generated: 
+t 24
+
+n 11111010111
+r 7 2 6 
+e 11111010111
+
+# Random test generated: 
+t 25
+
+n 10010011011110
+r 6 5 5 
+e 10010011011110
+
+# Random test generated: 
+t 26
+
+n 10001101111001100
+r 1 4 7 
+e 10010101111001100
+
+# Random test generated: 
+t 27
+
+n 1110101101
+r 3 2 9 
+e 1111001101
+
+# Random test generated: 
+t 28
+
+n 10101100000
+r 0 10 7 
+e 01100001010
+
+# Random test generated: 
+t 29
+
+n 10000111100010011
+r 8 8 10 
+e 10000111011000101
+
+# Random test generated: 
+t 30
+
+n 10000010110100001
+r 14 3 5 
+e 10000010110100010
+
+# Random test generated: 
+t 31
+
+n 101011101111
+r 1 6 8 
+e 111010101111
+
+# Random test generated: 
+t 32
+
+n 11010101011
+r 5 2 6 
+e 11010101011
+
+# Random test generated: 
+t 33
+
+n 1110001101
+r 8 1 7 
+e 1110001101
+
+# Random test generated: 
+t 34
+
+n 11111100000
+r 1 10 5 
+e 10000011111
+
+# Random test generated: 
+t 35
+
+n 11000010001
+r 0 5 5 
+e 11000010001
+
+# Random test generated: 
+t 36
+
+n 1001111011101010
+r 7 3 6 
+e 1001111011101010
+
+# Random test generated: 
+t 37
+
+n 1010
+r 0 1 9 
+e 1010
+
+# Random test generated: 
+t 38
+
+n 100000011010001
+r 2 10 9 
+e 100000110100001
+
+# Random test generated: 
+t 39
+
+n 11000001010
+r 2 7 7 
+e 11000001010
+
+# Random test generated: 
+t 40
+
+n 11001100001100
+r 0 5 10 
+e 11001100001100
+
+# Random test generated: 
+t 41
+
+n 11111010111100001110
+r 6 2 6 
+e 11111010111100001110
+
+# Random test generated: 
+t 42
+
+n 10110010100101111
+r 5 8 8 
+e 10110010100101111
+
+# Random test generated: 
+t 43
+
+n 11011111011
+r 3 3 9 
+e 11011111011
+
+# Random test generated: 
+t 44
+
+n 11000010101
+r 1 2 6 
+e 11000010101
+
+# Random test generated: 
+t 45
+
+n 110110101000
+r 5 4 6 
+e 110110101000
+
+# Random test generated: 
+t 46
+
+n 1110101111001111110
+r 15 1 9 
+e 1110101111001111110
+
+# Random test generated: 
+t 47
+
+n 1111001011
+r 0 7 6 
+e 1110011011
+
+# Random test generated: 
+t 48
+
+n 10101111010000100100
+r 6 1 5 
+e 10101111010000100100
+
+# Random test generated: 
+t 49
+
+n 10101101100010010111
+r 9 11 8 
+e 10101101110010111000
+
+# Random test generated: 
+t 50
+
+n 11001001111000110100
+r 2 17 8 
+e 11000110100010011110
+
+# Random test generated: 
+t 51
+
+n 11010100101
+r 2 7 10 
+e 11001010101
+
+# Random test generated: 
+t 52
+
+n 10000101011100101
+r 2 10 7 
+e 10101011100000101
+
+# Random test generated: 
+t 53
+
+n 1010111011
+r 0 7 10 
+e 1111010011
+
+# Random test generated: 
+t 54
+
+n 1000111010111
+r 1 3 5 
+e 1000111010111
+
+# Random test generated: 
+t 55
+
+n 1000011110
+r 0 1 7 
+e 1000011110
+
+# Random test generated: 
+t 56
+
+n 1000001101011000
+r 4 2 7 
+e 1000001101011000
+
+# Random test generated: 
+t 57
+
+n 11000001
+r 0 2 9 
+e 11000001
+
+# Random test generated: 
+t 58
+
+n 111011010011111100
+r 5 8 7 
+e 111010100111111100
+
+# Random test generated: 
+t 59
+
+n 11110001110101
+r 3 9 10 
+e 11111000111001
+
+# Random test generated: 
+t 60
+
+n 11101101011011
+r 5 9 9 
+e 11101101011011
+
+# Random test generated: 
+t 61
+
+n 1110110010011111
+r 5 8 9 
+e 1110111001001111
+
+# Random test generated: 
+t 62
+
+n 1001111110100010
+r 6 10 5 
+e 1001110001011101
+
+# Random test generated: 
+t 63
+
+n 100100011100
+r 1 8 10 
+e 111001000100
+
+# Random test generated: 
+t 64
+
+n 10001011011010101110
+r 4 5 5 
+e 10001011011010101110
+
+# Random test generated: 
+t 65
+
+n 101000111101100001
+r 13 3 10 
+e 101000111101100001
+
+# Random test generated: 
+t 66
+
+n 11110001011010111001
+r 1 9 9 
+e 11110001011010111001
+
+# Random test generated: 
+t 67
+
+n 101111111111111
+r 12 3 7 
+e 101111111111111
+
+# Random test generated: 
+t 68
+
+n 100011101
+r 2 3 8 
+e 100101101
+
+# Random test generated: 
+t 69
+
+n 100110000101011
+r 3 6 5 
+e 100100001101011
+
+# Random test generated: 
+t 70
+
+n 1000011110
+r 2 6 8 
+e 1011000110
+
+# Random test generated: 
+t 71
+
+n 1111100101
+r 0 3 9 
+e 1111100101
+
+# Random test generated: 
+t 72
+
+n 1001001010101
+r 9 3 5 
+e 1001001011001
+
+# Random test generated: 
+t 73
+
+n 1101100011101
+r 5 6 9 
+e 1101111100001
+
+# Random test generated: 
+t 74
+
+n 1101100010111111
+r 9 1 6 
+e 1101100010111111
+
+# Random test generated: 
+t 75
+
+n 110110000001
+r 3 2 7 
+e 110110000001
+
+# Random test generated: 
+t 76
+
+n 10010000100
+r 5 5 9 
+e 10010001000
+
+# Random test generated: 
+t 77
+
+n 11010111010000000
+r 5 2 6 
+e 11010111010000000
+
+# Random test generated: 
+t 78
+
+n 1111101000100
+r 10 3 8 
+e 1111101000001
+
+# Random test generated: 
+t 79
+
+n 101110111000
+r 8 4 5 
+e 101110110100
+
+# Random test generated: 
+t 80
+
+n 111111111100111111
+r 1 9 7 
+e 111111111100111111
+
+# Random test generated: 
+t 81
+
+n 10101101010110
+r 4 2 8 
+e 10101101010110
+
+# Random test generated: 
+t 82
+
+n 100111
+r 0 5 7 
+e 111001
+
+# Random test generated: 
+t 83
+
+n 11101011
+r 6 2 8 
+e 11101011
+
+# Random test generated: 
+t 84
+
+n 11010111010001111
+r 11 4 5 
+e 11010111010100111
+
+# Random test generated: 
+t 85
+
+n 10111000001
+r 3 5 10 
+e 10111000001
+
+# Random test generated: 
+t 86
+
+n 10011111111
+r 5 5 5 
+e 10011111111
+
+# Random test generated: 
+t 87
+
+n 101100010
+r 2 4 5 
+e 100110010
+
+# Random test generated: 
+t 88
+
+n 11100100101
+r 0 6 8 
+e 01111000101
+
+# Random test generated: 
+t 89
+
+n 1110011010101
+r 3 7 7 
+e 1110011010101
+
+# Random test generated: 
+t 90
+
+n 101011100100
+r 1 11 6 
+e 110010001011
+
+# Random test generated: 
+t 91
+
+n 110010011110
+r 3 3 7 
+e 110001011110
+
+# Random test generated: 
+t 92
+
+n 11111100000
+r 1 4 9 
+e 11111100000
+
+# Random test generated: 
+t 93
+
+n 1011001101111010
+r 9 5 10 
+e 1011001101111010
+
+# Random test generated: 
+t 94
+
+n 1110011111111000
+r 7 3 7 
+e 1110011111111000
+
+# Random test generated: 
+t 95
+
+n 1010110110
+r 0 8 5 
+e 0110110110
+
+# Random test generated: 
+t 96
+
+n 110010
+r 1 3 8 
+e 100110
+
+# Random test generated: 
+t 97
+
+n 1000100110000111
+r 0 15 10 
+e 0011000011100011
+
+# Random test generated: 
+t 98
+
+n 1011100000111111
+r 1 11 8 
+e 1100000110111111
+
+# Random test generated: 
+t 99
+
+n 101000010100
+r 5 5 8 
+e 101001010000
+
+# Random test generated: 
+t 100
+
+n 11100110110001
+r 3 10 10 
+e 11100110110001
+
+# Random test generated: 
+t 101
+
+n 10001101001011100
+r 2 12 9 
+e 10101001011001100
+
+# Random test generated: 
+t 102
+
+n 1110010001001010100
+r 4 15 5 
+e 1110101000100010010
+
+# Random test generated: 
+t 103
+
+n 10100100010100101
+r 0 15 6 
+e 10100110100100001
+
+# Random test generated: 
+t 104
+
+n 100101010110
+r 5 5 6 
+e 100101101010
+
+# Random test generated: 
+t 105
+
+n 100100100111000001
+r 13 4 5 
+e 100100100111000001
+
+# Random test generated: 
+t 106
+
+n 10111001111001100101
+r 12 4 7 
+e 10111001111011000101
+
+# Random test generated: 
+t 107
+
+n 1100001011111001101
+r 1 8 8 
+e 1100001011111001101
+
+# Random test generated: 
+t 108
+
+n 100010100001111
+r 4 8 6 
+e 100010000110111
+
+# Random test generated: 
+t 109
+
+n 10101011111111
+r 9 5 6 
+e 10101011111111
+
+# Random test generated: 
+t 110
+
+n 11110011000110000
+r 11 4 5 
+e 11110011000011000
+
+# Random test generated: 
+t 111
+
+n 1111110111011111
+r 1 10 8 
+e 1111011101111111
+
+# Random test generated: 
+t 112
+
+n 10010110
+r 4 1 9 
+e 10010110
+
+# Random test generated: 
+t 113
+
+n 111011000000100
+r 0 12 8 
+e 110000001110100
+
+# Random test generated: 
+t 114
+
+n 110010110000
+r 6 6 10 
+e 110010000011
+
+# Random test generated: 
+t 115
+
+n 11100111001100100
+r 14 1 5 
+e 11100111001100100
+
+# Random test generated: 
+t 116
+
+n 111001110010
+r 9 1 6 
+e 111001110010
+
+# Random test generated: 
+t 117
+
+n 1010011011
+r 5 2 9 
+e 1010011011
+
+# Random test generated: 
+t 118
+
+n 100110111110101010
+r 8 5 8 
+e 100110111011101010
+
+# Random test generated: 
+t 119
+
+n 100010111
+r 6 1 9 
+e 100010111
+
+# Random test generated: 
+t 120
+
+n 1101111100111
+r 5 2 7 
+e 1101111100111
+
+# Random test generated: 
+t 121
+
+n 10101000011101
+r 3 6 7 
+e 10100100011101
+
+# Random test generated: 
+t 122
+
+n 111101000100000110
+r 1 14 5 
+e 100000111010001110
+
+# Random test generated: 
+t 123
+
+n 11110000000111101
+r 13 3 9 
+e 11110000000111101
+
+# Random test generated: 
+t 124
+
+n 1111001011101111100
+r 0 18 8 
+e 1011111011110010110
+
+# Random test generated: 
+t 125
+
+n 1110111101
+r 4 3 6 
+e 1110111101
+
+# Random test generated: 
+t 126
+
+n 111001101000100010
+r 1 14 5 
+e 100100110011010010
+
+# Random test generated: 
+t 127
+
+n 100111111
+r 2 6 5 
+e 101111101
+
+# Random test generated: 
+t 128
+
+n 10010111101100
+r 2 3 8 
+e 10100111101100
+
+# Random test generated: 
+t 129
+
+n 110010011010110
+r 9 2 5 
+e 110010011100110
+
+# Random test generated: 
+t 130
+
+n 10011111111100
+r 13 1 9 
+e 10011111111100
+
+# Random test generated: 
+t 131
+
+n 1001010010010000
+r 9 3 9 
+e 1001010010010000
+
+# Random test generated: 
+t 132
+
+n 101101101
+r 0 4 7 
+e 011101101
+
+# Random test generated: 
+t 133
+
+n 1011001010
+r 3 3 7 
+e 1010101010
+
+# Random test generated: 
+t 134
+
+n 100101010
+r 0 2 9 
+e 010101010
+
+# Random test generated: 
+t 135
+
+n 100010001101000001
+r 8 3 8 
+e 100010001011000001
+
+# Random test generated: 
+t 136
+
+n 1111110000
+r 5 2 5 
+e 1111101000
+
+# Random test generated: 
+t 137
+
+n 11011100101001100
+r 3 6 6 
+e 11011100101001100
+
+# Random test generated: 
+t 138
+
+n 100111011110111
+r 5 6 9 
+e 100111111010111
+
+# Random test generated: 
+t 139
+
+n 11001000000101111111
+r 0 20 6 
+e 11111111001000000101
+
+# Random test generated: 
+t 140
+
+n 10101110000000000
+r 2 3 6 
+e 10101110000000000
+
+# Random test generated: 
+t 141
+
+n 1101011010
+r 0 8 7 
+e 1010110110
+
+# Random test generated: 
+t 142
+
+n 110100001000100100
+r 15 1 6 
+e 110100001000100100
+
+# Random test generated: 
+t 143
+
+n 101011000101101
+r 2 6 7 
+e 100101100101101
+
+# Random test generated: 
+t 144
+
+n 1010011001
+r 5 5 9 
+e 1010010011
+
+# Random test generated: 
+t 145
+
+n 1111111111011010111
+r 2 17 9 
+e 1101101011111111111
+
+# Random test generated: 
+t 146
+
+n 100100100110101
+r 14 1 5 
+e 100100100110101
+
+# Random test generated: 
+t 147
+
+n 110100010110
+r 4 7 6 
+e 110100101100
+
+# Random test generated: 
+t 148
+
+n 11011100000110010
+r 0 6 10 
+e 01111100000110010
+
+# Random test generated: 
+t 149
+
+n 1011011011011001011
+r 13 4 5 
+e 1011011011011000111
+
+# Random test generated: 
+t 150
+
+n 11000101011
+r 2 5 9 
+e 11001001011
+
+# Random test generated: 
+t 151
+
+n 110100000110
+r 1 10 7 
+e 100000111010
+
+# Random test generated: 
+t 152
+
+n 1011100110100100101
+r 11 4 8 
+e 1011100110100100101
+
+# Random test generated: 
+t 153
+
+n 1010111100001
+r 5 3 5 
+e 1010111100001
+
+# Random test generated: 
+t 154
+
+n 10011001
+r 1 3 5 
+e 10101001
+
+# Random test generated: 
+t 155
+
+n 1111100000
+r 3 7 8 
+e 1110110000
+
+# Random test generated: 
+t 156
+
+n 1010100001110010010
+r 12 4 10 
+e 1010100001111000010
+
+# Random test generated: 
+t 157
+
+n 110010010001000010
+r 7 6 8 
+e 110010010100000010
+
+# Random test generated: 
+t 158
+
+n 11101001111111111
+r 3 11 5 
+e 11111111010011111
+
+# Random test generated: 
+t 159
+
+n 10000001011000
+r 2 3 10 
+e 10000001011000
+
+# Random test generated: 
+t 160
+
+n 111111011
+r 7 2 10 
+e 111111011
+
+# Random test generated: 
+t 161
+
+n 10101111000110111011
+r 14 2 7 
+e 10101111000110111011
+
+# Random test generated: 
+t 162
+
+n 11010101110100010
+r 4 6 9 
+e 11011110100100010
+
+# Random test generated: 
+t 163
+
+n 11001001011
+r 4 5 6 
+e 11000100111
+
+# Random test generated: 
+t 164
+
+n 1011010010
+r 4 5 10 
+e 1011010010
+
+# Random test generated: 
+t 165
+
+n 11100101110100
+r 2 10 7 
+e 11101110110000
+
+# Random test generated: 
+t 166
+
+n 100010110001011
+r 3 12 5 
+e 100010110101100
+
+# Random test generated: 
+t 167
+
+n 1011001001111001
+r 6 1 5 
+e 1011001001111001
+
+# Random test generated: 
+t 168
+
+n 111001100101
+r 7 1 8 
+e 111001100101
+
+# Random test generated: 
+t 169
+
+n 11110101110
+r 8 3 9 
+e 11110101110
+
+# Random test generated: 
+t 170
+
+n 111000011111
+r 0 1 10 
+e 111000011111
+
+# Random test generated: 
+t 171
+
+n 1100010111
+r 0 6 9 
+e 0011100111
+
+# Random test generated: 
+t 172
+
+n 1000011010
+r 5 5 5 
+e 1000011010
+
+# Random test generated: 
+t 173
+
+n 1110011110
+r 4 6 10 
+e 1110111001
+
+# Random test generated: 
+t 174
+
+n 1100101101010
+r 11 1 7 
+e 1100101101010
+
+# Random test generated: 
+t 175
+
+n 110001101101011010
+r 4 4 10 
+e 110010011101011010
+
+# Random test generated: 
+t 176
+
+n 1000101110
+r 3 4 6 
+e 1000101110
+
+# Random test generated: 
+t 177
+
+n 1101
+r 0 3 7 
+e 0111
+
+# Random test generated: 
+t 178
+
+n 11011111100
+r 2 8 5 
+e 11111100110
+
+# Random test generated: 
+t 179
+
+n 1001111100
+r 3 6 6 
+e 1001111100
+
+# Random test generated: 
+t 180
+
+n 1011000011
+r 2 4 6 
+e 1000110011
+
+# Random test generated: 
+t 181
+
+n 1001110
+r 6 1 9 
+e 1001110
+
+# Random test generated: 
+t 182
+
+n 110111101101001
+r 4 4 10 
+e 110110111101001
+
+# Random test generated: 
+t 183
+
+n 1111010011
+r 1 1 6 
+e 1111010011
+
+# Random test generated: 
+t 184
+
+n 110010101011110010
+r 0 5 5 
+e 110010101011110010
+
+# Random test generated: 
+t 185
+
+n 10111110111000110
+r 3 7 5 
+e 10111011111000110
+
+# Random test generated: 
+t 186
+
+n 100001000110011
+r 2 13 6 
+e 101100110001000
+
+# Random test generated: 
+t 187
+
+n 111100101110
+r 4 7 9 
+e 111111001010
+
+# Random test generated: 
+t 188
+
+n 11101001000101
+r 1 6 8 
+e 10011011000101
+
+# Random test generated: 
+t 189
+
+n 10111000110
+r 0 1 8 
+e 10111000110
+
+# Random test generated: 
+t 190
+
+n 1111101
+r 0 5 10 
+e 1111101
+
+# Random test generated: 
+t 191
+
+n 100001110100011
+r 6 9 9 
+e 100001110100011
+
+# Random test generated: 
+t 192
+
+n 1101100111
+r 4 2 6 
+e 1101100111
+
+# Random test generated: 
+t 193
+
+n 11111101100
+r 7 1 7 
+e 11111101100
+
+# Random test generated: 
+t 194
+
+n 11101001101101
+r 9 4 6 
+e 11101001110011
+
+# Random test generated: 
+t 195
+
+n 11111010110
+r 4 2 10 
+e 11111010110
+
+# Random test generated: 
+t 196
+
+n 10100001001010110
+r 4 4 5 
+e 10101000001010110
+
+# Random test generated: 
+t 197
+
+n 10011111111101100
+r 7 6 5 
+e 10011111111011100
+
+# Random test generated: 
+t 198
+
+n 110101110110101110
+r 5 4 8 
+e 110101110110101110
+
+# Random test generated: 
+t 199
+
+n 10010010111010
+r 0 4 8 
+e 10010010111010
+
+# Random test generated: 
+t 200
+
+n 10100100
+r 5 2 10 
+e 10100100
+
+# Random test generated: 
+t 201
+
+n 11111101100001
+r 9 1 9 
+e 11111101100001
+
+# Random test generated: 
+t 202
+
+n 10000000011
+r 4 5 6 
+e 10000000011
+
+# Random test generated: 
+t 203
+
+n 11010000110
+r 2 8 9 
+e 11101000010
+
+# Random test generated: 
+t 204
+
+n 1010101110
+r 0 3 8 
+e 0110101110
+
+# Random test generated: 
+t 205
+
+n 101110010010
+r 3 6 10 
+e 101001011010
+
+# Random test generated: 
+t 206
+
+n 1101101100001000101
+r 11 1 5 
+e 1101101100001000101
+
+# Random test generated: 
+t 207
+
+n 1010011
+r 1 3 10 
+e 1001011
+
+# Random test generated: 
+t 208
+
+n 10110000010011
+r 3 6 6 
+e 10110000010011
+
+# Random test generated: 
+t 209
+
+n 1000111011000
+r 8 1 5 
+e 1000111011000
+
+# Random test generated: 
+t 210
+
+n 10111100100010
+r 8 2 6 
+e 10111100100010
+
+# Random test generated: 
+t 211
+
+n 1101110110
+r 4 3 6 
+e 1101110110
+
+# Random test generated: 
+t 212
+
+n 111100001
+r 0 3 10 
+e 111100001
+
+# Random test generated: 
+t 213
+
+n 10001100000101010
+r 6 11 9 
+e 10001100010101000
+
+# Random test generated: 
+t 214
+
+n 111011011110011010
+r 14 4 8 
+e 111011011110011010
+
+# Random test generated: 
+t 215
+
+n 101010101100101111
+r 8 3 8 
+e 101010101010101111
+
+# Random test generated: 
+t 216
+
+n 1010010110110
+r 1 7 10 
+e 1101010010110
+
+# Random test generated: 
+t 217
+
+n 1000111011
+r 7 2 10 
+e 1000111011
+
+# Random test generated: 
+t 218
+
+n 11011000100110101
+r 6 9 10 
+e 11011010010011001
+
+# Random test generated: 
+t 219
+
+n 1101101100
+r 0 10 9 
+e 1011011001
+
+# Random test generated: 
+t 220
+
+n 101010111100010110
+r 9 8 9 
+e 101010111110001010
+
+# Random test generated: 
+t 221
+
+n 1001100010110
+r 1 12 6 
+e 1010110001100
+
+# Random test generated: 
+t 222
+
+n 11000010000000010
+r 2 10 5 
+e 11000000000100010
+
+# Random test generated: 
+t 223
+
+n 1000010101
+r 0 5 5 
+e 1000010101
+
+# Random test generated: 
+t 224
+
+n 10010001011000110010
+r 12 8 7 
+e 10010001011001100100
+
+# Random test generated: 
+t 225
+
+n 1101010001110100
+r 11 1 5 
+e 1101010001110100
+
+# Random test generated: 
+t 226
+
+n 111000011010010001
+r 6 1 9 
+e 111000011010010001
+
+# Random test generated: 
+t 227
+
+n 10111100101011
+r 2 1 9 
+e 10111100101011
+
+# Random test generated: 
+t 228
+
+n 1011001010
+r 7 2 9 
+e 1011001100
+
+# Random test generated: 
+t 229
+
+n 111001111
+r 4 4 10 
+e 111011011
+
+# Random test generated: 
+t 230
+
+n 11100101011
+r 1 1 8 
+e 11100101011
+
+# Random test generated: 
+t 231
+
+n 1010000101010001
+r 4 5 6 
+e 1010000011010001
+
+# Random test generated: 
+t 232
+
+n 111101100101000001
+r 3 13 7 
+e 111101000010110001
+
+# Random test generated: 
+t 233
+
+n 1011000010100
+r 6 2 10 
+e 1011000010100
+
+# Random test generated: 
+t 234
+
+n 1000011100001111001
+r 0 7 8 
+e 1100001100001111001
+
+# Random test generated: 
+t 235
+
+n 10011
+r 0 3 8 
+e 00111
+
+# Random test generated: 
+t 236
+
+n 1011100110101001
+r 8 1 8 
+e 1011100110101001
+
+# Random test generated: 
+t 237
+
+n 110100010110001000
+r 13 4 7 
+e 110100010110010000
+
+# Random test generated: 
+t 238
+
+n 110101110100
+r 2 10 5 
+e 111010001011
+
+# Random test generated: 
+t 239
+
+n 111101010110
+r 5 6 8 
+e 111101110100
+
+# Random test generated: 
+t 240
+
+n 1000111111
+r 2 5 8 
+e 1011100111
+
+# Random test generated: 
+t 241
+
+n 11101101111110
+r 3 5 9 
+e 11111010111110
+
+# Random test generated: 
+t 242
+
+n 10001110000011
+r 0 4 6 
+e 00101110000011
+
+# Random test generated: 
+t 243
+
+n 11101000111011100010
+r 2 9 6 
+e 11000111101011100010
+
+# Random test generated: 
+t 244
+
+n 101100101101
+r 4 4 9 
+e 101100011101
+
+# Random test generated: 
+t 245
+
+n 110001010100
+r 3 1 7 
+e 110001010100
+
+# Random test generated: 
+t 246
+
+n 1011001111
+r 1 9 9 
+e 1011001111
+
+# Random test generated: 
+t 247
+
+n 111110010110100101
+r 9 9 7 
+e 111110010010010111
+
+# Random test generated: 
+t 248
+
+n 11111000010
+r 2 3 7 
+e 11111000010
+
+# Random test generated: 
+t 249
+
+n 101111100000
+r 0 1 10 
+e 101111100000
+
+# Random test generated: 
+t 250
+
+n 10111011110110
+r 6 3 7 
+e 10111011110110
+
+# Random test generated: 
+t 251
+
+n 101100010100
+r 5 6 9 
+e 101100100010
+
+# Random test generated: 
+t 252
+
+n 100000000101
+r 7 2 8 
+e 100000000101
+
+# Random test generated: 
+t 253
+
+n 1110110101100100
+r 4 1 5 
+e 1110110101100100
+
+# Random test generated: 
+t 254
+
+n 1111111100011
+r 2 5 6 
+e 1111111100011
+
+# Random test generated: 
+t 255
+
+n 1111111110
+r 6 2 5 
+e 1111111110
+
+# Random test generated: 
+t 256
+
+n 1011110010010011
+r 9 2 6 
+e 1011110010010011
+
+# Random test generated: 
+t 257
+
+n 101101000100
+r 5 1 10 
+e 101101000100
+
+# Random test generated: 
+t 258
+
+n 101111000001
+r 10 2 7 
+e 101111000010
+
+# Random test generated: 
+t 259
+
+n 10100010011
+r 7 3 9 
+e 10100010011
+
+# Random test generated: 
+t 260
+
+n 1010100100010010010
+r 12 2 7 
+e 1010100100010010010
+
+# Random test generated: 
+t 261
+
+n 10010111000110001
+r 0 9 10 
+e 01001011100110001
+
+# Random test generated: 
+t 262
+
+n 101110000001
+r 5 3 7 
+e 101110000001
+
+# Random test generated: 
+t 263
+
+n 111101010000101
+r 9 2 5 
+e 111101010000101
+
+# Random test generated: 
+t 264
+
+n 111000011101001
+r 1 6 5 
+e 110000111101001
+
+# Random test generated: 
+t 265
+
+n 11011111000000110101
+r 12 8 10 
+e 11011111000001001101
+
+# Random test generated: 
+t 266
+
+n 1010011010111111
+r 8 7 6 
+e 1010011001111111
+
+# Random test generated: 
+t 267
+
+n 101011110101001
+r 0 8 7 
+e 010111110101001
+
+# Random test generated: 
+t 268
+
+n 1000011110
+r 1 2 7 
+e 1000011110
+
+# Random test generated: 
+t 269
+
+n 11010011010101000
+r 4 5 10 
+e 11010011010101000
+
+# Random test generated: 
+t 270
+
+n 1100000000
+r 2 7 6 
+e 1100000000
+
+# Random test generated: 
+t 271
+
+n 11010000001000010010
+r 8 9 5 
+e 11010000000100010010
+
+# Random test generated: 
+t 272
+
+n 100000111111001
+r 0 2 9 
+e 010000111111001
+
+# Random test generated: 
+t 273
+
+n 1000110100
+r 1 4 5 
+e 1100010100
+
+# Random test generated: 
+t 274
+
+n 10101101110010001
+r 7 8 9 
+e 10101100111001001
+
+# Random test generated: 
+t 275
+
+n 1100000000111
+r 0 8 8 
+e 1100000000111
+
+# Random test generated: 
+t 276
+
+n 111101010010
+r 1 9 10 
+e 101110101010
+
+# Random test generated: 
+t 277
+
+n 110001110100001101
+r 0 8 7 
+e 100011110100001101
+
+# Random test generated: 
+t 278
+
+n 1111011011011011101
+r 5 4 7 
+e 1111010111011011101
+
+# Random test generated: 
+t 279
+
+n 1110101011010
+r 0 1 7 
+e 1110101011010
+
+# Random test generated: 
+t 280
+
+n 110111001101000001
+r 3 15 10 
+e 110110100000111100
+
+# Random test generated: 
+t 281
+
+n 10101010111110
+r 4 9 6 
+e 10100111111010
+
+# Random test generated: 
+t 282
+
+n 101110101101100
+r 3 8 6 
+e 101010110111100
+
+# Random test generated: 
+t 283
+
+n 11101111111000010
+r 6 3 7 
+e 11101111111000010
+
+# Random test generated: 
+t 284
+
+n 10100101010011110
+r 14 3 5 
+e 10100101010011101
+
+# Random test generated: 
+t 285
+
+n 11001000100110
+r 4 8 8 
+e 11001000100110
+
+# Random test generated: 
+t 286
+
+n 1010101011010000101
+r 5 11 6 
+e 1010101000001011101
+
+# Random test generated: 
+t 287
+
+n 111110110100110100
+r 15 1 10 
+e 111110110100110100
+
+# Random test generated: 
+t 288
+
+n 1101101000101
+r 4 1 10 
+e 1101101000101
+
+# Random test generated: 
+t 289
+
+n 100101111110101101
+r 13 4 7 
+e 100101111110111001
+
+# Random test generated: 
+t 290
+
+n 111011011000
+r 4 2 8 
+e 111011011000
+
+# Random test generated: 
+t 291
+
+n 100000101000
+r 3 4 9 
+e 100100001000
+
+# Random test generated: 
+t 292
+
+n 100111111011111
+r 11 2 7 
+e 100111111011111
+
+# Random test generated: 
+t 293
+
+n 111011010111011011
+r 14 4 7 
+e 111011010111010111
+
+# Random test generated: 
+t 294
+
+n 1111100101
+r 5 2 6 
+e 1111100101
+
+# Random test generated: 
+t 295
+
+n 101101011100010010
+r 1 13 8 
+e 101110001011010010
+
+# Random test generated: 
+t 296
+
+n 10111011011
+r 3 5 9 
+e 10110111011
+
+# Random test generated: 
+t 297
+
+n 10001101100
+r 0 5 6 
+e 11000101100
+
+# Random test generated: 
+t 298
+
+n 111010011101011110
+r 3 12 6 
+e 111101011010011110
+
+# Random test generated: 
+t 299
+
+n 100111010011
+r 6 2 7 
+e 100111100011
+
+# Random test generated: 
+t 300
+
+n 100010010100010
+r 3 3 9 
+e 100010010100010
+
+# Random test generated: 
+t 301
+
+n 11001000010110000
+r 13 2 5 
+e 11001000010110000
+
+# Random test generated: 
+t 302
+
+n 1011000111010001
+r 9 3 6 
+e 1011000111010001
+
+# Random test generated: 
+t 303
+
+n 110011000100101
+r 1 10 5 
+e 100010100110101
+
+# Random test generated: 
+t 304
+
+n 1101101000
+r 0 3 8 
+e 1011101000
+
+# Random test generated: 
+t 305
+
+n 1001101011011110
+r 2 12 7 
+e 1001101110110110
+
+# Random test generated: 
+t 306
+
+n 11000000110
+r 6 2 5 
+e 11000000110
+
+# Random test generated: 
+t 307
+
+n 111110010
+r 1 5 7 
+e 110111010
+
+# Random test generated: 
+t 308
+
+n 11000101010010
+r 0 5 8 
+e 00011101010010
+
+# Random test generated: 
+t 309
+
+n 100101100000000
+r 4 2 9 
+e 100110100000000
+
+# Random test generated: 
+t 310
+
+n 1101111000
+r 2 6 10 
+e 1111100100
+
+# Random test generated: 
+t 311
+
+n 111010
+r 1 2 6 
+e 111010
+
+# Random test generated: 
+t 312
+
+n 111001110100011010
+r 1 9 8 
+e 110011101100011010
+
+# Random test generated: 
+t 313
+
+n 10011111111111100
+r 0 1 5 
+e 10011111111111100
+
+# Random test generated: 
+t 314
+
+n 11010011111110011
+r 4 7 6 
+e 11010111110110011
+
+# Random test generated: 
+t 315
+
+n 1010010100
+r 4 3 8 
+e 1010100100
+
+# Random test generated: 
+t 316
+
+n 10011001010111
+r 8 6 5 
+e 10011001101110
+
+# Random test generated: 
+t 317
+
+n 110111010000
+r 10 2 5 
+e 110111010000
+
+# Random test generated: 
+t 318
+
+n 110010000101001000
+r 9 6 10 
+e 110010000100110000
+
+# Random test generated: 
+t 319
+
+n 111000001100010
+r 2 5 5 
+e 111000001100010
+
+# Random test generated: 
+t 320
+
+n 11001111100000
+r 0 13 10 
+e 01111100001100
+
+# Random test generated: 
+t 321
+
+n 110000001010010100
+r 3 1 7 
+e 110000001010010100
+
+# Random test generated: 
+t 322
+
+n 1001100001010
+r 2 4 7 
+e 1011000001010
+
+# Random test generated: 
+t 323
+
+n 111011101000
+r 4 2 10 
+e 111011101000
+
+# Random test generated: 
+t 324
+
+n 11111111011100
+r 0 2 10 
+e 11111111011100
+
+# Random test generated: 
+t 325
+
+n 11001101000
+r 0 4 7 
+e 10011101000
+
+# Random test generated: 
+t 326
+
+n 111101011101011110
+r 8 8 9 
+e 111101011110101110
+
+# Random test generated: 
+t 327
+
+n 1001011101111
+r 7 6 9 
+e 1001011111101
+
+# Random test generated: 
+t 328
+
+n 10001010000
+r 0 8 8 
+e 10001010000
+
+# Random test generated: 
+t 329
+
+n 1100001
+r 3 3 8 
+e 1100001
+
+# Random test generated: 
+t 330
+
+n 111000001000011
+r 12 2 8 
+e 111000001000011
+
+# Random test generated: 
+t 331
+
+n 10100111010
+r 6 4 7 
+e 10100110110
+
+# Random test generated: 
+t 332
+
+n 1010110100001
+r 7 4 7 
+e 1010110000101
+
+# Random test generated: 
+t 333
+
+n 1100011001000
+r 2 11 8 
+e 1111001000000
+
+# Random test generated: 
+t 334
+
+n 111100000000001
+r 2 12 8 
+e 110000000011001
+
+# Random test generated: 
+t 335
+
+n 1001111001101111
+r 1 15 8 
+e 1011011110011110
+
+# Random test generated: 
+t 336
+
+n 1101000011001100
+r 10 5 6 
+e 1101000011000110
+
+# Random test generated: 
+t 337
+
+n 11110111001010
+r 2 3 7 
+e 11011111001010
+
+# Random test generated: 
+t 338
+
+n 1101000000111000010
+r 10 2 6 
+e 1101000000111000010
+
+# Random test generated: 
+t 339
+
+n 1011101100000111
+r 3 13 6 
+e 1010001111101100
+
+# Random test generated: 
+t 340
+
+n 1111011111110000
+r 11 5 9 
+e 1111011111100001
+
+# Random test generated: 
+t 341
+
+n 110111000100101
+r 2 13 6 
+e 111001010111000
+
+# Random test generated: 
+t 342
+
+n 10111100111111010
+r 1 8 5 
+e 11100101111111010
+
+# Random test generated: 
+t 343
+
+n 111011000100100011
+r 0 14 8 
+e 000100101110110011
+
+# Random test generated: 
+t 344
+
+n 110010110000
+r 3 2 5 
+e 110100110000
+
+# Random test generated: 
+t 345
+
+n 1011101100111101110
+r 1 7 6 
+e 1111011000111101110
+
+# Random test generated: 
+t 346
+
+n 1001110011101111
+r 11 1 7 
+e 1001110011101111
+
+# Random test generated: 
+t 347
+
+n 1111110001
+r 1 6 8 
+e 1101111001
+
+# Random test generated: 
+t 348
+
+n 101100001001
+r 9 1 10 
+e 101100001001
+
+# Random test generated: 
+t 349
+
+n 1000100101000011
+r 0 2 7 
+e 0100100101000011
+
+# Random test generated: 
+t 350
+
+n 10011100100101
+r 3 10 8 
+e 10010010010111
+
+# Random test generated: 
+t 351
+
+n 10100100010101000
+r 5 9 10 
+e 10100110001010000
+
+# Random test generated: 
+t 352
+
+n 1110001100
+r 2 5 9 
+e 1100011100
+
+# Random test generated: 
+t 353
+
+n 11001100000000001101
+r 0 10 5 
+e 10000110010000001101
+
+# Random test generated: 
+t 354
+
+n 1110001110010000
+r 11 2 7 
+e 1110001110001000
+
+# Random test generated: 
+t 355
+
+n 1001011010
+r 0 10 5 
+e 1101010010
+
+# Random test generated: 
+t 356
+
+n 110110001110
+r 4 3 7 
+e 110101001110
+
+# Random test generated: 
+t 357
+
+n 10000111101001010
+r 1 2 9 
+e 10000111101001010
+
+# Random test generated: 
+t 358
+
+n 1110011110001100101
+r 13 3 5 
+e 1110011110001001101
+
+# Random test generated: 
+t 359
+
+n 101100110010000011
+r 13 5 10 
+e 101100110010000011
+
+# Random test generated: 
+t 360
+
+n 11111110110011110101
+r 6 2 7 
+e 11111101110011110101
+
+# Random test generated: 
+t 361
+
+n 100000000
+r 0 1 6 
+e 100000000
+
+# Random test generated: 
+t 362
+
+n 110110001000011101
+r 5 6 6 
+e 110110001000011101
+
+# Random test generated: 
+t 363
+
+n 1110110100111111
+r 4 8 10 
+e 1110111101001111
+
+# Random test generated: 
+t 364
+
+n 111010101111
+r 5 6 10 
+e 111010111011
+
+# Random test generated: 
+t 365
+
+n 11110001001001011111
+r 13 2 5 
+e 11110001001000111111
+
+# Random test generated: 
+t 366
+
+n 101010000110101
+r 4 9 10 
+e 101011000011001
+
+# Random test generated: 
+t 367
+
+n 1010011000100100100
+r 0 12 5 
+e 0001010100110100100
+
+# Random test generated: 
+t 368
+
+n 1100111010110011
+r 2 10 10 
+e 1100111010110011
+
+# Random test generated: 
+t 369
+
+n 1101000100001010
+r 1 12 8 
+e 1001000011010010
+
+# Random test generated: 
+t 370
+
+n 101011001001000001
+r 16 1 6 
+e 101011001001000001
+
+# Random test generated: 
+t 371
+
+n 1000111010
+r 7 1 10 
+e 1000111010
+
+# Random test generated: 
+t 372
+
+n 1110001010010111101
+r 8 1 5 
+e 1110001010010111101
+
+# Random test generated: 
+t 373
+
+n 100101010111
+r 2 4 9 
+e 101010010111
+
+# Random test generated: 
+t 374
+
+n 10000101111
+r 9 1 10 
+e 10000101111
+
+# Random test generated: 
+t 375
+
+n 110101011011
+r 4 1 6 
+e 110101011011
+
+# Random test generated: 
+t 376
+
+n 10110001111
+r 0 9 9 
+e 10110001111
+
+# Random test generated: 
+t 377
+
+n 1110001100001
+r 0 6 9 
+e 0001111100001
+
+# Random test generated: 
+t 378
+
+n 1110101011010
+r 3 6 9 
+e 1111010101010
+
+# Random test generated: 
+t 379
+
+n 1000111111011
+r 2 2 6 
+e 1000111111011
+
+# Random test generated: 
+t 380
+
+n 10010010110110
+r 4 8 5 
+e 10010110100110
+
+# Random test generated: 
+t 381
+
+n 101001000111001110
+r 9 4 6 
+e 101001000101101110
+
+# Random test generated: 
+t 382
+
+n 11101011100101101000
+r 13 7 7 
+e 11101011100101101000
+
+# Random test generated: 
+t 383
+
+n 11111111000
+r 1 1 7 
+e 11111111000
+
+# Random test generated: 
+t 384
+
+n 10100011101100
+r 0 7 6 
+e 01000111101100
+
+# Random test generated: 
+t 385
+
+n 11011100101101
+r 0 3 10 
+e 01111100101101
+
+# Random test generated: 
+t 386
+
+n 11000011101000
+r 0 1 7 
+e 11000011101000
+
+# Random test generated: 
+t 387
+
+n 1110001100001000
+r 0 14 9 
+e 0110000101110000
+
+# Random test generated: 
+t 388
+
+n 10000011000110100
+r 12 4 8 
+e 10000011000110100
+
+# Random test generated: 
+t 389
+
+n 110111000010
+r 6 2 10 
+e 110111000010
+
+# Random test generated: 
+t 390
+
+n 111110001100100
+r 14 1 10 
+e 111110001100100
+
+# Random test generated: 
+t 391
+
+n 1001110110100001110
+r 0 11 6 
+e 1011011001100001110
+
+# Random test generated: 
+t 392
+
+n 10001010100110
+r 3 4 7 
+e 10010100100110
+
+# Random test generated: 
+t 393
+
+n 1000011111011
+r 1 4 8 
+e 1000011111011
+
+# Random test generated: 
+t 394
+
+n 110001010110010
+r 2 8 7 
+e 110010101010010
+
+# Random test generated: 
+t 395
+
+n 101111001010
+r 9 1 7 
+e 101111001010
+
+# Random test generated: 
+t 396
+
+n 100101111110
+r 4 7 10 
+e 100111101110
+
+# Random test generated: 
+t 397
+
+n 11110110101
+r 9 1 8 
+e 11110110101
+
+# Random test generated: 
+t 398
+
+n 110001101110000000
+r 2 16 9 
+e 111100000000001101
+
+# Random test generated: 
+t 399
+
+n 1111010101101100
+r 0 3 9 
+e 1111010101101100
+
+# Random test generated: 
+t 400
+
+n 111101000110011011
+r 8 10 5 
+e 111101001101101100
+
+# Random test generated: 
+t 401
+
+n 10001001110010
+r 2 2 9 
+e 10001001110010
+
+# Random test generated: 
+t 402
+
+n 11001001000110110
+r 11 6 7 
+e 11001001000011011
+
+# Random test generated: 
+t 403
+
+n 10101011100010
+r 9 4 10 
+e 10101011101000
+
+# Random test generated: 
+t 404
+
+n 1000000010
+r 3 5 9 
+e 1000000010
+
+# Random test generated: 
+t 405
+
+n 10111101101000
+r 7 1 7 
+e 10111101101000
+
+# Random test generated: 
+t 406
+
+n 111101011111
+r 10 1 8 
+e 111101011111
+
+# Random test generated: 
+t 407
+
+n 1111111110
+r 0 3 10 
+e 1111111110
+
+# Random test generated: 
+t 408
+
+n 11100111010101110
+r 0 15 5 
+e 01011111001110110
+
+# Random test generated: 
+t 409
+
+n 101011110010
+r 5 2 5 
+e 101011110010
+
+# Random test generated: 
+t 410
+
+n 10100110000010010
+r 1 14 10 
+e 11100000100010010
+
+# Random test generated: 
+t 411
+
+n 1001110011010
+r 4 4 7 
+e 1001100111010
+
+# Random test generated: 
+t 412
+
+n 1111110000100
+r 3 1 5 
+e 1111110000100
+
+# Random test generated: 
+t 413
+
+n 1110100110010001
+r 10 5 10 
+e 1110100110010001
+
+# Random test generated: 
+t 414
+
+n 100101010101000010
+r 14 2 6 
+e 100101010101000010
+
+# Random test generated: 
+t 415
+
+n 1101111111010
+r 5 6 6 
+e 1101111111010
+
+# Random test generated: 
+t 416
+
+n 10101111
+r 7 1 5 
+e 10101111
+
+# Random test generated: 
+t 417
+
+n 10101100001
+r 5 4 7 
+e 10101000101
+
+# Random test generated: 
+t 418
+
+n 1100010000
+r 4 3 5 
+e 1100100000
+
+# Random test generated: 
+t 419
+
+n 1110001100100101011
+r 5 9 6 
+e 1110000100101101011
+
+# Random test generated: 
+t 420
+
+n 100000001010000111
+r 1 1 10 
+e 100000001010000111
+
+# Random test generated: 
+t 421
+
+n 101111000000
+r 4 8 9 
+e 101101100000
+
+# Random test generated: 
+t 422
+
+n 1011100
+r 1 2 10 
+e 1011100
+
+# Random test generated: 
+t 423
+
+n 10110001100
+r 5 4 6 
+e 10110110000
+
+# Random test generated: 
+t 424
+
+n 11011000001
+r 3 2 7 
+e 11011000001
+
+# Random test generated: 
+t 425
+
+n 1111110111011010011
+r 6 13 10 
+e 1111111011010011011
+
+# Random test generated: 
+t 426
+
+n 1010110010100001
+r 3 8 5 
+e 1010010101100001
+
+# Random test generated: 
+t 427
+
+n 11110101001000011
+r 8 1 8 
+e 11110101001000011
+
+# Random test generated: 
+t 428
+
+n 10110100110100111
+r 3 1 8 
+e 10110100110100111
+
+# Random test generated: 
+t 429
+
+n 111011111
+r 6 3 7 
+e 111011111
+
+# Random test generated: 
+t 430
+
+n 100110110010
+r 5 7 8 
+e 100110011001
+
+# Random test generated: 
+t 431
+
+n 10011110110110001
+r 9 2 6 
+e 10011110110110001
+
+# Random test generated: 
+t 432
+
+n 100111010111
+r 11 1 6 
+e 100111010111
+
+# Random test generated: 
+t 433
+
+n 101111010100001
+r 0 1 9 
+e 101111010100001
+
+# Random test generated: 
+t 434
+
+n 1100000001001011100
+r 12 3 9 
+e 1100000001001011100
+
+# Random test generated: 
+t 435
+
+n 111000101101110111
+r 1 3 9 
+e 111000101101110111
+
+# Random test generated: 
+t 436
+
+n 11000010
+r 0 5 10 
+e 11000010
+
+# Random test generated: 
+t 437
+
+n 110110110101110010
+r 2 3 6 
+e 110110110101110010
+
+# Random test generated: 
+t 438
+
+n 10001010000
+r 9 1 6 
+e 10001010000
+
+# Random test generated: 
+t 439
+
+n 1110010010110
+r 10 3 5 
+e 1110010010101
+
+# Random test generated: 
+t 440
+
+n 10110111101101
+r 2 3 8 
+e 10101111101101
+
+# Random test generated: 
+t 441
+
+n 101000011
+r 2 4 8 
+e 101000011
+
+# Random test generated: 
+t 442
+
+n 1001111010111
+r 8 4 9 
+e 1001111011011
+
+# Random test generated: 
+t 443
+
+n 10001101100110010
+r 13 2 5 
+e 10001101100110010
+
+# Random test generated: 
+t 444
+
+n 101110001011001101
+r 2 1 9 
+e 101110001011001101
+
+# Random test generated: 
+t 445
+
+n 1010100110
+r 2 3 9 
+e 1010100110
+
+# Random test generated: 
+t 446
+
+n 111110001011001100
+r 15 2 9 
+e 111110001011001010
+
+# Random test generated: 
+t 447
+
+n 1001110111010101
+r 1 9 10 
+e 1100111011010101
+
+# Random test generated: 
+t 448
+
+n 111101001101110010
+r 10 7 5 
+e 111101001111001010
+
+# Random test generated: 
+t 449
+
+n 1111010000100
+r 1 5 9 
+e 1110110000100
+
+# Random test generated: 
+t 450
+
+n 10010111001000
+r 11 2 7 
+e 10010111001000
+
+# Random test generated: 
+t 451
+
+n 1100000101
+r 3 6 7 
+e 1100000011
+
+# Random test generated: 
+t 452
+
+n 1011110011111010000
+r 4 15 10 
+e 1011111101000011001
+
+# Random test generated: 
+t 453
+
+n 1101011110
+r 2 3 9 
+e 1101011110
+
+# Random test generated: 
+t 454
+
+n 111101010001
+r 4 2 10 
+e 111101010001
+
+# Random test generated: 
+t 455
+
+n 11011100101
+r 8 3 10 
+e 11011100110
+
+# Random test generated: 
+t 456
+
+n 1111010100100101101
+r 0 5 10 
+e 1111010100100101101
+
+# Random test generated: 
+t 457
+
+n 1100111011111110011
+r 12 3 9 
+e 1100111011111110011
+
+# Random test generated: 
+t 458
+
+n 10011111110010001
+r 6 5 6 
+e 10011101111010001
+
+# Random test generated: 
+t 459
+
+n 110111101000100
+r 1 9 9 
+e 110111101000100
+
+# Random test generated: 
+t 460
+
+n 1100000011000110
+r 9 3 9 
+e 1100000011000110
+
+# Random test generated: 
+t 461
+
+n 1000010111010
+r 1 11 10 
+e 1000101110100
+
+# Random test generated: 
+t 462
+
+n 1001000
+r 3 2 10 
+e 1001000
+
+# Random test generated: 
+t 463
+
+n 1000110100
+r 1 4 10 
+e 1010010100
+
+# Random test generated: 
+t 464
+
+n 101011011000
+r 2 2 9 
+e 100111011000
+
+# Random test generated: 
+t 465
+
+n 100010110101110
+r 9 2 8 
+e 100010110101110
+
+# Random test generated: 
+t 466
+
+n 1000101111101100101
+r 16 2 9 
+e 1000101111101100011
+
+# Random test generated: 
+t 467
+
+n 11100001010100111
+r 0 8 8 
+e 11100001010100111
+
+# Random test generated: 
+t 468
+
+n 1010010100100100
+r 2 5 9 
+e 1000101100100100
+
+# Random test generated: 
+t 469
+
+n 11110000000100110
+r 4 2 9 
+e 11110000000100110
+
+# Random test generated: 
+t 470
+
+n 1110000111011001
+r 9 6 8 
+e 1110000110010111
+
+# Random test generated: 
+t 471
+
+n 10101111
+r 0 8 6 
+e 10111110
+
+# Random test generated: 
+t 472
+
+n 1000110100010011110
+r 6 8 10 
+e 1000110001000111110
+
+# Random test generated: 
+t 473
+
+n 100011000000
+r 0 10 8 
+e 001100001000
+
+# Random test generated: 
+t 474
+
+n 11011001000011000
+r 10 6 5 
+e 11011001000110000
+
+# Random test generated: 
+t 475
+
+n 1001100001011001001
+r 10 9 9 
+e 1001100001011001001
+
+# Random test generated: 
+t 476
+
+n 11111000000100
+r 11 1 9 
+e 11111000000100
+
+# Random test generated: 
+t 477
+
+n 101001110111
+r 3 4 7 
+e 101011010111
+
+# Random test generated: 
+t 478
+
+n 111101011110010
+r 8 5 7 
+e 111101010011110
+
+# Random test generated: 
+t 479
+
+n 1100100100111
+r 4 1 8 
+e 1100100100111
+
+# Random test generated: 
+t 480
+
+n 100010101110111
+r 10 4 7 
+e 100010101101111
+
+# Random test generated: 
+t 481
+
+n 111110011111
+r 2 10 8 
+e 111001111111
+
+# Random test generated: 
+t 482
+
+n 1100100110101010
+r 3 4 5 
+e 1100010110101010
+
+# Random test generated: 
+t 483
+
+n 1111110001000
+r 7 2 8 
+e 1111110001000
+
+# Random test generated: 
+t 484
+
+n 100110101100100
+r 0 7 7 
+e 100110101100100
+
+# Random test generated: 
+t 485
+
+n 101111000101
+r 8 2 7 
+e 101111001001
+
+# Random test generated: 
+t 486
+
+n 1110110100101001010
+r 3 14 9 
+e 1110010100100110110
+
+# Random test generated: 
+t 487
+
+n 10101000111000
+r 6 2 8 
+e 10101000111000
+
+# Random test generated: 
+t 488
+
+n 1011110101001
+r 7 4 9 
+e 1011110010101
+
+# Random test generated: 
+t 489
+
+n 111001001001100101
+r 9 3 10 
+e 111001001100100101
+
+# Random test generated: 
+t 490
+
+n 1011111100000000
+r 6 3 9 
+e 1011111100000000
+
+# Random test generated: 
+t 491
+
+n 1000011010111011
+r 11 4 5 
+e 1000011010111101
+
+# Random test generated: 
+t 492
+
+n 10001001011110100
+r 9 7 9 
+e 10001001010111100
+
+# Random test generated: 
+t 493
+
+n 11010110001010110
+r 5 7 6 
+e 11010100010110110
+
+# Random test generated: 
+t 494
+
+n 101011000000010
+r 8 2 6 
+e 101011000000010
+
+# Random test generated: 
+t 495
+
+n 11100110011
+r 4 1 9 
+e 11100110011
+
+# Random test generated: 
+t 496
+
+n 101101101000100000
+r 7 6 8 
+e 101101101010000000
+
+# Random test generated: 
+t 497
+
+n 10111111011001001
+r 5 4 5 
+e 10111011111001001
+
+# Random test generated: 
+t 498
+
+n 11101101
+r 0 6 8 
+e 11111001
+
+# Random test generated: 
+t 499
+
+n 11111011000001110101
+r 5 4 8 
+e 11111011000001110101
+

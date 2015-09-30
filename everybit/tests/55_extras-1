@@ -1,0 +1,48 @@
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+
+# Checking for a possible bug about the last bit set when i=0 for j=bit_length-2
+t 0
+n 1001001
+r 3 2 1
+e 1000101
+r 5 1 1
+e 1000101
+r 6 1 1
+e 1000101
+
+# 0 length subarray
+t 1
+n 100011001
+r 3 0 1
+e 100011001
+r 4 0 5
+e 100011001
+r 5 0 12
+e 100011001
+
+# 0 rotation
+t 2
+n 101110
+r 3 2 0
+e 101110
+r 2 1 0
+e 101110
+
+# Generalized smallish test
+t 3
+n 111011110101100100000
+r 4 7 -3
+e 111010101111100100000
+r 4 7 3
+e 111011110101100100000
+
+# Not relatively prime
+t 4
+n 10110000
+r 0 4 6
+e 11100000

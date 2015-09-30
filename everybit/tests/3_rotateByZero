@@ -1,0 +1,7 @@
+# This test checks that bitarray_rotate provides the expected
+# lack of rotation when it rotates an array by zero.
+t 0
+
+n 11010011
+r 0 8 0
+e 11010011

@@ -1,0 +1,55 @@
+#7: bit array represented with multiple bytes
+t 7
+
+#01101001 11000100 00010010
+n 011010011100010000010010
+
+# rotate within a byte
+r 3 3 1
+e 011001011100010000010010
+
+# rotate across two bytes with full byte rotation
+r 3 8 8
+e 011001011100010000010010
+
+r 3 11 8
+e 011011100010010000010010
+
+# rotate across two bytes with <full byte rotation
+r 3 11 3
+e 011001011100010000010010
+
+# rotate across two bytes with >full byte rotation
+r 3 11 9
+e 011101110001000000010010
+
+# rotate across three bytes
+r 3 15 11
+e 011100010000001011010010
+
+# 8: bitarray with multiple bytes but unfilled last byte
+t 8
+
+# 01101001 11000100 000100
+n 0110100111000100000100
+
+# full rotation
+r 3 8 8
+e 0110100111000100000100
+
+r 3 11 11
+e 0110100111000100000100
+
+# rotation across three bytes with >full byte rotation
+r 3 14 9
+e 0111100010000100100100
+
+# rotation across four bytes
+t 9
+
+n 01101101001010101101010000101011
+
+r 2 17 9
+e 01101010110101101001010000101011
+
+

@@ -1,0 +1,95 @@
+# Copyright (c) 2012 MIT License by 6.172 Staff
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+
+# Instructions for writing a test:
+#
+# t: initializes new test
+# n: initializes bit array
+# r: rotates bit array subset at offset, length by amount
+# e: expects raw bit array value
+#all these tests also test case when bit offset is every number between 25 and 33
+
+# 0: tests when (-pivot bit length) mod 2nd param = 16 to 24, 39 bit number
+
+t 0 
+
+n 101111001010111010101110101011110111101
+r 3 25 9
+e 101011101010111001010111010111110111101 
+
+r 3 27 10
+e 101011101011101110101011100101110111101
+
+r 5 25 7
+e 101011100101110101110111010101110111101
+
+r 6 26 5 
+e 101011101111001011101011101110100111101
+
+r 1 29 9
+e 101110111001011101111001011101100111101
+
+r 8 31 10 
+e 101110111100111101100101110111100101110
+
+r 2 30 52
+e 100011110110010111011110111011110101110
+
+r 7 32 9 
+e 100011111010111010110010111011110111011
+
+r 6 33 57 
+e 100011010110010111011110111011111010111
+
+# 1: tests when (-pivot bit length) mod 2nd param = 16 to 24, 41 bit number
+
+t 1
+n 10111100101011101010111010101111011110111
+r 0 25 -9 
+e 01011101010111011011110010101111011110111 
+
+r 4 27 -10 
+e 01010110111100101011111010101111011110111 
+
+r 5 25 -7
+e 01010001010111110101011110111111011110111 
+
+r 6 26 -5 
+e 01010011111010101111011111101010011110111 
+
+r 1 29 -9
+e 01010101111011111101010100111110011110111 
+
+r 8 31 -10 
+e 01010101010101001111100111101111011111111 
+
+r 2 30 -52
+e 01111011110101010101010011111001011111111 
+
+r 7 32 -9 
+e 01111010101010011111001011111111101010111 
+
+r 6 33 -57 
+e 01111011101010110101010011111001011111111
+
+r 13 28 87 
+e 01111011101011110110101010011111001011111
+

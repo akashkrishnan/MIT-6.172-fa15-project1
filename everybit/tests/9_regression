@@ -1,0 +1,13 @@
+# 0: Bug in circular rotation when using offset, which was ignored by modulo calculation.
+t 0
+
+n 10011110
+r 2 5 2
+e 10110110
+
+# 1: Ensure that nothing pollutes memory.
+t 1
+
+n 11111111
+r 2 5 2
+e 11111111

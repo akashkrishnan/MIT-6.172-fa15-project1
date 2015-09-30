@@ -1,0 +1,47 @@
+#Contains all tests pertaining to odd-bit length arrays
+
+## 0: single bit
+t 0
+n 1 
+
+r 0 1 0
+e 1
+
+r 0 1 2
+e 1
+
+r 0 1 99
+e 1
+
+## 1: 3-bit
+t 1
+n 010
+
+r 0 3 1
+e 001
+
+r 0 3 -1
+e 010
+
+## 2: 5 bits
+t 2
+n 11000
+
+r 0 5 2
+e 00110
+
+r 0 5 -2
+e 11000
+
+## 3: 11 bits
+t 3
+n 00011100011
+
+r 1 8 2
+e 00000111011
+
+r 1 8 2
+e 01000001111
+
+r 1 8 -2
+e 00000111011

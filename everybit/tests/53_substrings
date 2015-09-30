@@ -1,0 +1,54 @@
+
+## length 1 substring rotation
+t 0
+n 01100100
+
+# rotate a single bit over and over
+r 0 1 73
+e 01100100
+
+# rotate a different bit over and over
+r 3 1 71
+e 01100100
+
+# rotate a negative modulus
+r 5 1 -71
+e 01100100
+
+
+## larger substring rotations
+t 1
+n 01101010
+
+# rotation that does nothing
+r 0 3 9
+e 01101010
+
+# right rotation
+r 0 3 2
+e 11001010
+
+# left rotation
+r 0 3 -1
+e 10101010
+
+# left rotation that wraps
+r 0 3 -5
+e 11001010
+
+# right rotation in middle of bitstring
+r 4 2 1
+e 11000110
+
+# left rotation going to end of bitstring
+r 4 4 -3
+e 11000011
+
+
+## 64bit substrings
+t 2
+n 0111010100100100011100101100010001110101001001000111001011000100
+
+r 5 7 4
+e 0111000101010100011100101100010001110101001001000111001011000100
+
